@@ -12,7 +12,7 @@ Class Activity
         private $activity_category_id;
         private $id;
 
-        function __construct($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $activity_id, $activity_category_id, $id = null)
+        function __construct($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null)
         {
             $this->activity_name = $activity_name;
             $this->activity_date = $activity_date;
@@ -28,7 +28,7 @@ Class Activity
         //Set Method:
         function setActivityName($new_activity_name)
         {
-            $this->activity_name = $activity_name;
+            $this->activity_name = (string)$activity_name;
         }
 
         function setActivityDate($new_activity_date)
@@ -38,17 +38,17 @@ Class Activity
 
         function setActivityLocation($new_activity_location)
         {
-            $this->activity_location = $activity_location;
+            $this->activity_location = (string)$activity_location;
         }
 
         function setActivityDescription($new_activity_description)
         {
-            $this->activity_description = $activity_description;
+            $this->activity_description = (string)$activity_description;
         }
 
         function setActivityPrice($new_activity_price)
         {
-            $this->activity_price = $activity_price;
+            $this->activity_price = (string)$activity_price;
         }
 
         function setActivityQuantity($new_activity_quantity)
@@ -70,50 +70,48 @@ Class Activity
 
         function getActivityName()
         {
-            $this->activity_name;
+            return $this->activity_name;
         }
 
         function getActivityDate()
         {
-            $this->activity_date;
+            return $this->activity_date;
         }
 
         function getActivityLocation()
         {
-        $this->activity_location;
+            return $this->activity_location;
         }
 
         function getActivityDescription()
         {
-            $this->activity_description;
+            return $this->activity_description;
         }
 
         function getActivityPrice()
         {
-            $this->activity_price;
+            return $this->activity_price;
         }
 
         function getActivityQuantity()
         {
-            $this->activity_quantity;
+            return $this->activity_quantity;
         }
 
         function getBusinessId()
         {
-            $this->business_id;
+            return $this->business_id;
         }
 
         function getActivityCategoryId()
         {
-            $this->activity_category_id;
+            return $this->activity_category_id;
         }
 
         function getId()
         {
-            $this->id;
+            return $this->id;
         }
-
-         
 
     }
 ?>
