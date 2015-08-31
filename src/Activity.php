@@ -68,5 +68,52 @@ Class Activity
 
         //Get Methods
 
+        function getActivityName()
+        {
+            $this->activity_name;
+        }
+
+        function getActivityDate()
+        {
+            $this->activity_date;
+        }
+
+        function getActivityLocation()
+        {
+        $this->activity_location;
+        }
+
+        function getActivityDescription()
+        {
+            $this->activity_description;
+        }
+
+        function getActivityPrice()
+        {
+            $this->activity_price;
+        }
+
+        function getActivityQuantity()
+        {
+            $this->activity_quantity;
+        }
+
+        function getBusinessId()
+        {
+            $this->business_id;
+        }
+
+        function getActivityCategoryId()
+        {
+            $this->activity_category_id;
+        }
+
+        function getId()
+        {
+            $this->id;
+        }
+
+         
+
     }
 ?>
