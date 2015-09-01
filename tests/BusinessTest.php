@@ -29,8 +29,17 @@
         function testGetBusinessName()
         {
             //Arrange
-            $business_name="IBM";
-            $test_business = new Business($business_name);
+            $business_name ="IBM";
+            $business_phone = 5033133131;
+            $business_contact = "john";
+            $business_website = "walkins.com";
+            $business_address ="123 fake st";
+            $business_contact_email = "me@fake.email";
+            $business_category_id = 4;
+            $business_login = "username1";
+            $business_password= "chocolate";
+            $id =3;
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $business_login, $business_password, $id=null);
 
             //Act
             $result = $test_business->getBusinessName();
@@ -43,15 +52,25 @@
         function testSetBusinessName()
         {
             //Arrange
-            $business_name="apple";
-            $test_business = new Business($business_name);
+            $business_name="IBM";
+            $business_phone= 5033133131;
+            $business_contact = "john";
+            $business_website = "walkins.com";
+            $business_address ="123 fake st";
+            $business_contact_email = "me@fake.email";
+            $business_category_id= 4;
+            $business_login = "username1";
+            $business_password= "chocolate";
+            $id= 5;
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $business_login, $business_password, $id = null);
+
 
             //Act
-            $test_business->setBusinessName("apple");
+            $test_business->setBusinessName("IBM");
             $result = $test_business->getBusinessName();
 
             //Assert
-            $this->assertEquals ("apple", $result);
+            $this->assertEquals ("IBM", $result);
         }
 //
 //

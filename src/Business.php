@@ -12,7 +12,16 @@
         private $business_password;
         private $id;
 
-        function __construct($business_name, $business_phone, $business_contact, $business_website,$business_address, $business_contact_email, $business_catagory_id, $business_login, $business_password, $id=null)
+        function __construct($business_name,
+        $business_phone,
+        $business_contact,
+        $business_website,
+        $business_address,
+         $business_contact_email,
+         $business_category_id,
+         $business_login,
+          $business_password,
+          $id=null)
         {
             $this->business_name = $business_name;
             $this->business_phone = $business_phone;
@@ -39,79 +48,84 @@
             $this->business_name = $new_business_name;
 
         }
-//
-//
-//         function GetBusinessPhone()
-//         {
-//
-//         }
-//
-//
-//         function SetBusinessPhone()
-//         {
-//
-//         }
-//
-//
-//         function SetBusinessContact()
-//         {
-//
-//         }
-//
-//         function GetBusinessContact()
-//         {
-//
-//         }
-//
-//         function SetBusinessWebsite()
-//         {
-//
-//         }
-//
-//         function GetBusinessWebsite()
-//         {
-//
-//         }
-//
-//         function SetBusinessAddress()
-//         {
-//
-//         }
-//
-//         function GetBusinessAddress()
-//         {
-//
-//         }
-//
-//         function SetBusinessEmail()
-//         {
-//
-//         }
-//
-//         function GetBusinessEmail()
-//         {
-//
-//         }
-//
-//         function GetBusinessLogin()
-//         {
-//
-//         }
-//
-//         function SetBusinessLogin()
-//         {
-//
-//         }
-//
-//         function GetBusinessPassword()
-//         {
-//
-//         }
-//
-//         function SetBusinessPassword()
-//         {
-//
-//         }
+
+
+        function GetBusinessPhone()
+        {
+            return $this->business_phone;
+
+        }
+
+
+        function SetBusinessPhone()
+        {
+            $this->business_phone = $new_business_phone;
+
+        }
+
+
+        function SetBusinessContact()
+        {
+            return $this->business_contact;
+        }
+
+        function GetBusinessContact()
+        {
+            $this->business_contact = $new_business_contact;
+
+        }
+
+        function SetBusinessWebsite()
+        {
+            return $this->business_website;
+
+        }
+
+        function GetBusinessWebsite()
+        {
+            $this->business_website = $new_business_website;
+        }
+
+        function SetBusinessAddress()
+        {
+            return $this->business_address;
+        }
+
+        function GetBusinessAddress()
+        {
+            $this->business_address;
+        }
+
+        function SetBusinessEmail()
+        {
+            return $this->business_email;
+        }
+
+        function GetBusinessEmail()
+        {
+            $this->business_website = $new_business_email;
+        }
+
+        function GetBusinessLogin()
+        {
+            return $this->business_login;
+        }
+
+        function SetBusinessLogin()
+        {
+            $this->business_login = $new_business_login;
+        }
+
+        function GetBusinessPassword()
+        {
+            return $this->business_password;
+        }
+
+        function SetBusinessPassword()
+        {
+            $this->business_password = $new_business_password; 
+
+        }
 //
 // //////////////////Save, GetAll, DeleteAll, Find, Update//////////////
 // /////////////////////////////////////////////////////////////////////
