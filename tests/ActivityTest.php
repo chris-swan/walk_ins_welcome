@@ -391,7 +391,6 @@
             //Assert
             $this->assertEquals($test_activity, $result);
         }
-
     }
 
 ?>
