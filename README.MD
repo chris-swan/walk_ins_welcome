@@ -2,7 +2,7 @@
 
 #####  Website for finding last minute activities in your town, 8/31/2015
 
-#### By Ben Casalino, Micah Courey, Chris Swan & Jose Torres
+#### By Ben Casalino, Micah Courey, Jenna Navratil, Jordan Navratil, Chris Swan & Jose Torres
 
 ## Description
 
