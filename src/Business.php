@@ -117,8 +117,30 @@
             $GLOBALS['DB']->exec("INSERT INTO businesses (business_name, business_phone, business_contact, business_website, business_address, business_contact_email, business_category_id) VALUES ('{$this->getBusinessName()}', '{$this->getBusinessPhone()}', '{$this->getBusinessContact()}', '{$this->getBusinessWebsite()}', '{$this->getBusinessAddress()}', '{$this->getBusinessContactEmail()}', {$this->getBusinessCategoryId()});");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
-        
 
+        function updateContact($new_business_contact)
+        {
+        $GLOBALS['DB']->exec("UPDATE businesses SET business_contact ='{$new_business_contact}' WHERE id = {$this->getId()}, {$this->getBusinessContact()};");
+        $this->setBusinessContact($new_business_contact);
+        }
+
+        function updatePhone($new_business_phone)
+        {
+        $GLOBALS['DB']->exec("UPDATE businesses SET business_phone ='{$new_business_phone}' WHERE id = {$this->getId()}, {$this->getBusinessPhone()};");
+        $this->setBusinessPhone($new_business_phone);
+        }
+
+        function updateWebsite($new_business_website)
+        {
+        $GLOBALS['DB']->exec("UPDATE businesses SET business_website ='{$new_business_website}' WHERE id = {$this->getId()}, {$this->getBusinessWebsite()};");
+        $this->setBusinessWebsite($new_business_website);
+        }
+
+        function updateContactEmail($new_business_contact_email)
+        {
+        $GLOBALS['DB']->exec("UPDATE businesses SET business_contact_email ='{$new_business_contact_email}' WHERE id = {$this->getId()}, {$this->getBusinessContactEmail()};");
+        $this->setBusinessContactEmail($new_business_contact_email);
+        }
 
 /////////////////STATIC------STATIC--------STATIC--------STATIC////////
 //////////////////////////////find, getAll, DeleteAll//////////////////
