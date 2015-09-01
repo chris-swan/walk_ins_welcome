@@ -24,5 +24,18 @@
         return $app['twig']->render('index.html.twig');
     });
 
-    
+    $app->get("/activities", function() use ($app) {
+            return $app['twig']->render('activities.html.twig', array('activities'=>Activity::getAll()));
+    });
+
+    $app->get("/businesses", function() use ($app) {
+        return $app['twig']->('businesses.html.twig', array('businesses'=>Business::getAll()));
+    });
+
+    // $app->get("/activity/{id}", function($id) use ($app) {
+    //     $activity = Activity::find($id);
+    //     $activity_id = $activity->getId();
+    //     return $app['twig']->render('activity.html.twig', )
+    // })
+    //
 ?>
