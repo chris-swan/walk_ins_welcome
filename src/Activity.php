@@ -28,37 +28,37 @@ Class Activity
         //Set Method:
         function setActivityName($new_activity_name)
         {
-            $this->activity_name = (string)$activity_name;
+            $this->activity_name = (string)$new_activity_name;
         }
 
         function setActivityDate($new_activity_date)
         {
-            $this->activity_date = $activity_date;
+            $this->activity_date = $new_activity_date;
         }
 
         function setActivityLocation($new_activity_location)
         {
-            $this->activity_location = (string)$activity_location;
+            $this->activity_location = (string)$new_activity_location;
         }
 
         function setActivityDescription($new_activity_description)
         {
-            $this->activity_description = (string)$activity_description;
+            $this->activity_description = (string)$new_activity_description;
         }
 
         function setActivityPrice($new_activity_price)
         {
-            $this->activity_price = (string)$activity_price;
+            $this->activity_price = (string)$new_activity_price;
         }
 
         function setActivityQuantity($new_activity_quantity)
         {
-            $this->activity_quantity = $activity_quantity;
+            $this->activity_quantity = $new_activity_quantity;
         }
 
         function setBusinessId($new_business_id)
         {
-            $this->business_id = $business_id;
+            $this->business_id = $new_business_id;
         }
 
         function setActivityCategoryId($new_activity_category_id)
@@ -113,15 +113,26 @@ Class Activity
             return $this->id;
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM activities WHERE id = {$this->getID()};");
+        }
+
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO activities (activity_name, activity_date, activity_location, activity_description, activity_price, activity_quantity, business_id, activity_category_id) VALUES ('{$this->getActivityName()}', '{$this->getActivityDate()}', '{$this->getActivityLocation()}', '{$this->getActivityDescription()}', '{$this->getActivityPrice()}', '{$this->getActivityQuantity()}', '{$this->getBusinessId()}', '{$this->getActivityCategoryId()}');");
+            $GLOBALS['DB']->exec("INSERT INTO activities (activity_name, activity_date, activity_location, activity_description, activity_price, activity_quantity, business_id, activity_category_id) VALUES ('{$this->getActivityName()}', '{$this->getActivityDate()}', '{$this->getActivityLocation()}', '{$this->getActivityDescription()}', '{$this->getActivityPrice()}', {$this->getActivityQuantity()}, {$this->getBusinessId()}, {$this->getActivityCategoryId()});");
             $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+
+        function update($new_activity_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE activities SET activity_name = '{$new_activity_name}' WHERE id = {$this->getId()};");
+            $this->setActivityName($new_activity_name);
         }
 
         static function getAll()
         {
-            $returned_activities = $GLOBAL['DB']->query("SELECT * FROM activities;");
+            $returned_activities = $GLOBALS['DB']->query("SELECT * FROM activities;");
             $activities = array();
 
             foreach($returned_activities as $activity) {

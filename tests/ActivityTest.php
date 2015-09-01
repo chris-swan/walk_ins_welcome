@@ -212,23 +212,152 @@
         {
             //Arrange
             $activity_name = "Activity One";
-            $activity_date = 2016-01-01;
+            $activity_date = '2016-01-01';
             $activity_location = "Location";
             $activity_description = "Description of Activity One";
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 1;
             $activity_category_id = 2;
-            $id = 3;
+            $id = 1;
             $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
 
             //Act
-            $$test_activity->save();
+            $test_activity->save();
 
             //Assert
             $result = Activity::getAll();
             $this->assertEquals($test_activity, $result[0]);
         }
+
+        function testGetAll()
+        {
+            //Arrange
+            $activity_name = "Activity One";
+            $activity_date = '2016-01-01';
+            $activity_location = "Location";
+            $activity_description = "Description of Activity One";
+            $activity_price = "Price of Activity One";
+            $activity_quantity = 10;
+            $business_id = 11;
+            $activity_category_id = 12;
+            $id = 1;
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity->save();
+
+            $activity_name2 = "Activity Two";
+            $activity_date2 = '2016-02-02';
+            $activity_location2 = "Location Two";
+            $activity_description2 = "Description of Activity Two";
+            $activity_price2 = "Price of Activity Two";
+            $activity_quantity2 = 20;
+            $business_id2 = 21;
+            $activity_category_id2 = 22;
+            $id2 = 2;
+            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity2->save();
+
+            //Act
+            $result = Activity::getAll();
+
+            //Assert
+            $this->assertEquals($test_activity, $result[0]);
+        }
+
+        function testDeleteAll()
+        {
+            //Arrange
+            $activity_name = "Activity One";
+            $activity_date = '2016-01-01';
+            $activity_location = "Location";
+            $activity_description = "Description of Activity One";
+            $activity_price = "Price of Activity One";
+            $activity_quantity = 10;
+            $business_id = 11;
+            $activity_category_id = 12;
+            $id = 1;
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity->save();
+
+            $activity_name2 = "Activity Two";
+            $activity_date2 = '2016-02-02';
+            $activity_location2 = "Location Two";
+            $activity_description2 = "Description of Activity Two";
+            $activity_price2 = "Price of Activity Two";
+            $activity_quantity2 = 20;
+            $business_id2 = 21;
+            $activity_category_id2 = 22;
+            $id2 = 2;
+            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity2->save();
+
+            //Act
+            Activity::deleteAll();
+            $result = Activity::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
+
+        function testDelete()
+        {
+            //Arrange
+            $activity_name = "Activity One";
+            $activity_date = '2016-01-01';
+            $activity_location = "Location";
+            $activity_description = "Description of Activity One";
+            $activity_price = "Price of Activity One";
+            $activity_quantity = 10;
+            $business_id = 11;
+            $activity_category_id = 12;
+            $id = 1;
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity->save();
+
+            $activity_name2 = "Activity Two";
+            $activity_date2 = '2016-02-02';
+            $activity_location2 = "Location Two";
+            $activity_description2 = "Description of Activity Two";
+            $activity_price2 = "Price of Activity Two";
+            $activity_quantity2 = 20;
+            $business_id2 = 21;
+            $activity_category_id2 = 22;
+            $id2 = 2;
+            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity2->save();
+
+            //Act
+            $test_activity2->delete();
+            $result = Activity::getAll();
+
+            //Assert
+            $this->assertEquals([$test_activity], $result);
+        }
+
+        function testUpdate()
+        {
+            //Arrange
+            $activity_name = "Activity One";
+            $activity_date = '2016-01-01';
+            $activity_location = "Location";
+            $activity_description = "Description of Activity One";
+            $activity_price = "Price of Activity One";
+            $activity_quantity = 10;
+            $business_id = 1;
+            $activity_category_id = 2;
+            $id = 1;
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+            $test_activity->save();
+
+            $new_activity_name = "Activity Two";
+
+            //Act
+            $test_activity->update($new_activity_name);
+
+            //Assert
+            $this->assertEquals("Activity Two", $test_activity->getActivityName());
+        }
+
     }
 
 
