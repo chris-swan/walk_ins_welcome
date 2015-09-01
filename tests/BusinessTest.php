@@ -59,10 +59,8 @@
             $business_address ="123 fake st";
             $business_contact_email = "me@fake.email";
             $business_category_id= 4;
-            $business_login = "username1";
-            $business_password= "chocolate";
             $id= 5;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $business_login, $business_password, $id = null);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
 
 
             //Act
@@ -72,136 +70,226 @@
             //Assert
             $this->assertEquals ("IBM", $result);
         }
-//
-//
-//         function testGetBusinessPhone()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//
-//         function testSetBusinessPhone()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//
-//         function testSetBusinessContact()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//         function testGetBusinessContact()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//         function testSetBusinessWebsite()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//         function testGetBusinessWebsite()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//         function testSetBusinessAddress()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//         function testGetBusinessAddress()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//         function testSetBusinessEmail()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//         function testGetBusinessEmail()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//         function testGetBusinessLogin()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//         function testSetBusinessLogin()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//         function testGetBusinessPassword()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
-//         function testSetBusinessPassword()
-//         {
-//             //Arrange
-//
-//             //Act
-//
-//             //Assert
-//         }
-//
+
+
+        function testGetBusinessPhone()
+        {
+          //Arrange
+          $business_name="IBM";
+          $business_phone= 5033133131;
+          $business_contact = "john";
+          $business_website = "walkins.com";
+          $business_address ="123 fake st";
+          $business_contact_email = "me@fake.email";
+          $business_category_id= 4;
+          $id= 5;
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+
+
+          //Act
+
+          $result = $test_business->getBusinessPhone();
+
+          //Assert
+          $this->assertEquals (5033133131, $result);
+
+        }
+
+
+        function testSetBusinessPhone()
+        {
+            //Arrange
+            $business_name="IBM";
+            $business_phone= 5033133131;
+            $business_contact = "john";
+            $business_website = "walkins.com";
+            $business_address ="123 fake st";
+            $business_contact_email = "me@fake.email";
+            $business_category_id= 4;
+            $id= 5;
+            $test_business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+
+            //Act
+            $test_business->setBusinessPhone(5033133131);
+            $result = $test_business->getBusinessPhone();
+
+
+            //Assert
+            $this->assertEquals (5033133131, $result);
+        }
+
+
+        function testGetBusinessContact()
+        {
+          //Arrange
+          $business_name="IBM";
+          $business_phone= 5033133131;
+          $business_contact = "john";
+          $business_website = "walkins.com";
+          $business_address ="123 fake st";
+          $business_contact_email = "me@fake.email";
+          $business_category_id= 4;
+          $id= 5;
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+
+
+          //Act
+
+          $result = $test_business->getBusinessContact();
+
+          //Assert
+          $this->assertEquals ("john", $result);
+        }
+        function testSetBusinessContact()
+        {
+          //Arrange
+          $business_name="IBM";
+          $business_phone= 5033133131;
+          $business_contact = "john";
+          $business_website = "walkins.com";
+          $business_address ="123 fake st";
+          $business_contact_email = "me@fake.email";
+          $business_category_id= 4;
+          $id= 5;
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+
+
+          //Act
+          $test_business->setBusinessContact("john");
+          $result = $test_business->getBusinessContact();
+
+          //Assert
+          $this->assertEquals ("john", $result);
+        }
+
+
+        function testGetBusinessWebsite()
+        {
+            //Arrange
+            $business_name="IBM";
+            $business_phone= 5033133131;
+            $business_contact = "john";
+            $business_website = "walkins.com";
+            $business_address ="123 fake st";
+            $business_contact_email = "me@fake.email";
+            $business_category_id= 4;
+            $id= 5;
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+
+            //Act
+            $result = $test_business->getBusinessWebsite();
+
+            //Assert
+            $this->assertEquals ("walkins.com", $result);
+        }
+
+        function testSetBusinessWebsite()
+        {
+
+            //Arrange
+            $business_name="IBM";
+            $business_phone= 5033133131;
+            $business_contact = "john";
+            $business_website = "walkins.com";
+            $business_address ="123 fake st";
+            $business_contact_email = "me@fake.email";
+            $business_category_id= 4;
+            $id= 5;
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+
+
+            //Act
+            $test_business->setBusinessWebsite("walk-ins.com");
+            $result = $test_business->getBusinessWebsite();
+
+            //Assert
+            $this->assertEquals ("walk-ins.com", $result);
+        }
+
+        function testGetBusinessAddress()
+        {
+          //Arrange
+          $business_name="IBM";
+          $business_phone= 5033133131;
+          $business_contact = "john";
+          $business_website = "walkins.com";
+          $business_address ="123 fake st.";
+          $business_contact_email = "me@fake.email";
+          $business_category_id= 4;
+          $id= 5;
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+
+          //Act
+          $result = $test_business->getBusinessAddress();
+
+          //Assert
+          $this->assertEquals ("123 fake st.", $result);
+        }
+
+        function testSetBusinessAddress()
+        {
+            //Arrange
+            $business_name="IBM";
+            $business_phone= 5033133131;
+            $business_contact = "john";
+            $business_website = "walkins.com";
+            $business_address ="123 fake st";
+            $business_contact_email = "me@fake.email";
+            $business_category_id= 4;
+            $id= 5;
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+
+            //Act
+            $test_business->setBusinessAddress("123 fake st");
+            $result = $test_business->getBusinessAddress();
+
+            //Assert
+            $this->assertEquals ("123 fake st", $result);
+        }
+
+        function testGetBusinessContactEmail()
+        {
+          //Arrange
+          $business_name="IBM";
+          $business_phone= 5033133131;
+          $business_contact = "john";
+          $business_website = "walkins.com";
+          $business_address ="123 fake st";
+          $business_contact_email = "me@fakeemail.com";
+          $business_category_id= 4;
+          $id= 5;
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+
+          //Act
+          $result = $test_business->getBusinessContactEmail();
+
+          //Assert
+          $this->assertEquals ("me@fakeemail.com", $result);
+        }
+
+        function testSetBusinessContactEmail()
+        {
+          //Arrange
+          $business_name="IBM";
+          $business_phone= 5033133131;
+          $business_contact = "john";
+          $business_website = "walkins.com";
+          $business_address ="123 fake st";
+          $business_contact_email = "me@fakeemail.com";
+          $business_category_id= 4;
+          $id= 5;
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+
+          //Act
+          $test_business->setBusinessContactEmail("me@fakeemail.com");
+          $result = $test_business->getBusinessContactEmail();
+
+          //Assert
+          $this->assertEquals ("me@fakeemail.com", $result);
+        }
+
+
+
 // //////////////////Save, GetAll, DeleteAll, Find, Update//////////////
 // /////////////////////////////////////////////////////////////////////
 //         function testSave()
