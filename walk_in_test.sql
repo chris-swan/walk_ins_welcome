@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8080
--- Generation Time: Aug 31, 2015 at 10:18 PM
+-- Generation Time: Sep 01, 2015 at 07:22 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.11
 
@@ -30,15 +30,15 @@ USE `walk_in_test`;
 
 CREATE TABLE IF NOT EXISTS `activities` (
   `activity_name` varchar(255) NOT NULL,
-  `activity_date` datetime(6) NOT NULL,
+  `activity_date` date NOT NULL,
   `activity_location` varchar(255) NOT NULL,
-  `activity_price` varchar(255) NOT NULL,
   `activity_description` varchar(500) NOT NULL,
+  `activity_price` varchar(255) NOT NULL,
   `activity_quantity` int(11) NOT NULL,
   `business_id` int(11) NOT NULL,
   `activity_category_id` int(11) NOT NULL,
   `id` bigint(20) unsigned NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `activities_categories` (
 
 CREATE TABLE IF NOT EXISTS `businesses` (
   `business_name` varchar(255) DEFAULT NULL,
-  `business_phone` int(11) DEFAULT NULL,
+  `business_phone` bigint(11) DEFAULT NULL,
   `business_contact` varchar(255) DEFAULT NULL,
   `business_website` varchar(255) DEFAULT NULL,
   `business_address` varchar(255) DEFAULT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 CREATE TABLE IF NOT EXISTS `users` (
   `user_name` varchar(255) DEFAULT NULL,
   `user_buy_quantity` int(11) DEFAULT NULL,
-  `user_phone` int(11) DEFAULT NULL,
+  `user_phone` bigint(11) DEFAULT NULL,
   `user_email` varchar(255) DEFAULT NULL,
   `activity_id` int(11) DEFAULT NULL,
   `id` bigint(20) unsigned NOT NULL
@@ -163,7 +163,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `activities_categories`
 --

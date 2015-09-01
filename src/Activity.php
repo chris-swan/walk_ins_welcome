@@ -28,42 +28,42 @@ Class Activity
         //Set Method:
         function setActivityName($new_activity_name)
         {
-            $this->activity_name = (string)$activity_name;
+            $this->activity_name = (string)$new_activity_name;
         }
 
         function setActivityDate($new_activity_date)
         {
-            $this->activity_date = $activity_date;
+            $this->activity_date = $new_activity_date;
         }
 
         function setActivityLocation($new_activity_location)
         {
-            $this->activity_location = (string)$activity_location;
+            $this->activity_location = (string)$new_activity_location;
         }
 
         function setActivityDescription($new_activity_description)
         {
-            $this->activity_description = (string)$activity_description;
+            $this->activity_description = (string)$new_activity_description;
         }
 
         function setActivityPrice($new_activity_price)
         {
-            $this->activity_price = (string)$activity_price;
+            $this->activity_price = (string)$new_activity_price;
         }
 
         function setActivityQuantity($new_activity_quantity)
         {
-            $this->activity_quantity = $activity_quantity;
+            $this->activity_quantity = $new_activity_quantity;
         }
 
         function setBusinessId($new_business_id)
         {
-            $this->business_id = $business_id;
+            $this->business_id = $new_business_id;
         }
 
         function setActivityCategoryId($new_activity_category_id)
         {
-            $this->activity_category_id = $activity_category_id;
+            $this->activity_category_id = $new_activity_category_id;
         }
 
         //Get Methods
@@ -112,6 +112,68 @@ Class Activity
         {
             return $this->id;
         }
+
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM activities WHERE id = {$this->getID()};");
+        }
+
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO activities (activity_name, activity_date, activity_location, activity_description, activity_price, activity_quantity, business_id, activity_category_id) VALUES ('{$this->getActivityName()}', '{$this->getActivityDate()}', '{$this->getActivityLocation()}', '{$this->getActivityDescription()}', '{$this->getActivityPrice()}', {$this->getActivityQuantity()}, {$this->getBusinessId()}, {$this->getActivityCategoryId()});");
+            $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+
+        function update($new_activity_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE activities SET activity_name = '{$new_activity_name}' WHERE id = {$this->getId()};");
+            $this->setActivityName($new_activity_name);
+        }
+
+        static function getAll()
+        {
+            $returned_activities = $GLOBALS['DB']->query("SELECT * FROM activities;");
+            $activities = array();
+
+            foreach($returned_activities as $activity) {
+                $activity_name = $activity['activity_name'];
+                $activity_date = $activity['activity_date'];
+                $activity_location = $activity['activity_location'];
+                $activity_description = $activity['activity_description'];
+                $activity_price = $activity['activity_price'];
+                $activity_quantity = $activity['activity_quantity'];
+                $business_id = $activity['business_id'];
+                $activity_category_id = $activity['activity_category_id'];
+                $id = $activity['id'];
+                $new_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+            array_push($activities, $new_activity);
+            }
+            return $activities;
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM activities;");
+        }
+    //search function
+        static function find($search_id)
+        {
+            $found_activity = NULL;
+            $activities = Activity::getAll();
+            foreach ($activities as $activity) {
+                $activity_id = $activity->getId();
+                if ($activity_id == $search_id) {
+                    $found_activity = $activity;
+                }
+            }
+            return $found_activity;
+        }
+        //Add and get category
+        // function addCategory($category_name)
+        // {
+        //     $GLOBALS['DB']->exec("INSERT INTO activities_categories(activity_id, category_id) VALUES({$category_name->getId()}, {$this->getId()});");
+        // }
+
 
     }
 ?>
