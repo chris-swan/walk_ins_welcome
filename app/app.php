@@ -8,7 +8,7 @@
     $app = new Silex\Application();
     $app['debug'] = true;
 
-    $server = 'mysql:host=localhost;dbname=library';
+    $server = 'mysql:host=localhost;dbname=walk_in';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -28,9 +28,9 @@
             return $app['twig']->render('activities.html.twig', array('activities'=>Activity::getAll()));
     });
 
-    $app->get("/businesses", function() use ($app) {
-        return $app['twig']->('businesses.html.twig', array('businesses'=>Business::getAll()));
-    });
+    //$app->get("/businesses", function() use ($app) {
+    //    return $app['twig']->('businesses.html.twig', array('businesses'=>Business::getAll()));
+    //});
 
     // $app->get("/activity/{id}", function($id) use ($app) {
     //     $activity = Activity::find($id);

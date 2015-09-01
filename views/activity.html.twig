@@ -1,8 +1,21 @@
 <html>
     <head>
-        <title></title>
+        <title>Walk ins Welcome</title>
     </head>
     <body>
-        
+        <h1>Activities</h1>
+
+        {% if activities is not empty %}
+            <p> Here are the activities to go do: </p>
+            <ul>
+                {% for activity in activities %}
+                    <li><a href="/activity/{{ activity.getId }}">{{ activity.getActivityName }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no activities today</p>
+        {% endif %}
+
+        <h3>Add a ac
     </body>
 </html>
