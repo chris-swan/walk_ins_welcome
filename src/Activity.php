@@ -155,6 +155,19 @@ Class Activity
         {
             $GLOBALS['DB']->exec("DELETE FROM activities;");
         }
+    //search function
+        static function find($search_id)
+        {
+            $found_activity = NULL;
+            $activities = Activity::getAll();
+            foreach ($activities as $activity) {
+                $activity_id = $activity->getId();
+                if ($activity_id == $search_id) {
+                    $found_activity = $activity;
+                }
+            }
+            return $found_activity;
+        }
         //Add and get category
         // function addCategory($category_name)
         // {
