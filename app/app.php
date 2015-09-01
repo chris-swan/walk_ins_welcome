@@ -32,6 +32,11 @@
        return $app['twig']->render('businesses.html.twig', array('businesses'=>Business::getAll()));
     });
 
+    $app->get("/businesshome/{id}", function($id) use ($app) {
+        $business = Business::find($id);
+        return $app['twig']->render('businesshome.html.twig', array('business' => $business, 'businesses' => Business::getAll, 'all_activities' =>Activity::getALl()));
+    });
+
     // $app->get("/activity/{id}", function($id) use ($app) {
     //     $activity = Activity::find($id);
     //     $activity_id = $activity->getId();
