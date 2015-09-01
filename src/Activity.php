@@ -155,6 +155,11 @@ Class Activity
         {
             $GLOBALS['DB']->exec("DELETE FROM activities;");
         }
+        //Add and get category
+        // function addCategory($category_name)
+        // {
+        //     $GLOBALS['DB']->exec("INSERT INTO activities_categories(activity_id, category_id) VALUES({$category_name->getId()}, {$this->getId()});");
+        // }
 
 
     }
