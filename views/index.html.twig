@@ -3,10 +3,36 @@
     <title>Walk ins Welcome</title>
 </head>
 <body>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href='/'>Activities</a>
+        <a class="navbar-brand" href='/businesshome'>Add or view specific business</a>
+    </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    </div>
+</div>
+</nav>
     <h1>Go do something awesome!</h1>
+    <h2>Activities</h2>
 
-    <h3><a href="/activities">Add or view an activity</a></h3>
-    <h3><a href="/businesses">Add or view a business</a></h3>
+    {% if activities is not empty %}
+        <p> Here are the activities to go do: </p>
+        <ul>
+            {% for activity in activities %}
+                <li><a href="/activity/{{ activity.getId }}">{{ activity.getActivityName }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no activities today</p>
+    {% endif %}
+
 
 </body>
 </html>
