@@ -113,5 +113,38 @@ Class Activity
             return $this->id;
         }
 
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO activities (activity_name, activity_date, activity_location, activity_description, activity_price, activity_quantity, business_id, activity_category_id) VALUES ('{$this->getActivityName()}', '{$this->getActivityDate()}', '{$this->getActivityLocation()}', '{$this->getActivityDescription()}', '{$this->getActivityPrice()}', '{$this->getActivityQuantity()}', '{$this->getBusinessId()}', '{$this->getActivityCategoryId()}');");
+            $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+
+        static function getAll()
+        {
+            $returned_activities = $GLOBAL['DB']->query("SELECT * FROM activities;");
+            $activities = array();
+
+            foreach($returned_activities as $activity) {
+                $activity_name = $activity['activity_name'];
+                $activity_date = $activity['activity_date'];
+                $activity_location = $activity['activity_location'];
+                $activity_description = $activity['activity_description'];
+                $activity_price = $activity['activity_price'];
+                $activity_quantity = $activity['activity_quantity'];
+                $business_id = $activity['business_id'];
+                $activity_category_id = $activity['activity_category_id'];
+                $id = $activity['id'];
+                $new_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+            array_push($activities, $new_activity);
+            }
+            return $activities;
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM activities;");
+        }
+
+
     }
 ?>
