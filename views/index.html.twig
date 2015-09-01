@@ -2,11 +2,25 @@
 <head>
     <title>Walk ins Welcome</title>
 </head>
+<header>
+    <h3><a href="/userhome">Add or view user info</a></h3>
+    <h3><a href="/businesses">Add or view a business</a></h3>
+</header>
 <body>
     <h1>Go do something awesome!</h1>
+    <h2>Activities</h2>
 
-    <h3><a href="/activities">Add or view an activity</a></h3>
-    <h3><a href="/businesses">Add or view a business</a></h3>
+    {% if activities is not empty %}
+        <p> Here are the activities to go do: </p>
+        <ul>
+            {% for activity in activities %}
+                <li><a href="/activity/{{ activity.getId }}">{{ activity.getActivityName }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no activities today</p>
+    {% endif %}
+
 
 </body>
 </html>

@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Walk ins Welcome</title>
+</head>
+<header>
+    <h3><a href="/userhome">Add or view user info</a></h3>
+</header>
+<body>
+    {% if businesses is not empty %}
+        <p> Here are the businesses offering fun things: </p>
+        <ul>
+            {% for business in businesses %}
+                <li><a href="/business/{{ business.getId }}">{{ business.getbusinessName }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no businesses currently offering today</p>
+    {% endif %}
+
+    <h3><a href = "/">Main page</h3>
+</body>
