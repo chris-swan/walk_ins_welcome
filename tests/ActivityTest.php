@@ -12,9 +12,6 @@
         $password = 'root';
         $DB = new PDO($server, $username, $password);
 
-<<<<<<< HEAD
-        class ActivityTest extends PHPUnit_Framework_TestCase
-=======
     class ActivityTest extends PHPUnit_Framework_TestCase
     {
         protected function tearDown()
@@ -23,7 +20,6 @@
         }
 
         function testGetActivityName()
->>>>>>> upstream/master
         {
             // protected function tearDown()
             // {
@@ -222,8 +218,6 @@
 
         }
 
-<<<<<<< HEAD
-=======
         function testGetActivityDescription()
         {
             //Arrange
@@ -534,6 +528,5 @@
             $this->assertEquals($test_activity, $result);
         }
     }
->>>>>>> upstream/master
 
     ?>
