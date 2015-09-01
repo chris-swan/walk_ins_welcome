@@ -63,7 +63,7 @@ Class Activity
 
         function setActivityCategoryId($new_activity_category_id)
         {
-            $this->activity_category_id = $activity_category_id;
+            $this->activity_category_id = $new_activity_category_id;
         }
 
         //Get Methods
