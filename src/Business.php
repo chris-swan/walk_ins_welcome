@@ -110,8 +110,6 @@
             return $this->id;
         }
 
-
-
 //////////////////////////////Save, Update/////////////////////////////
 ///////////////////////////////////////////////////////////////////////
         function save()
@@ -119,6 +117,7 @@
             $GLOBALS['DB']->exec("INSERT INTO businesses (business_name, business_phone, business_contact, business_website, business_address, business_contact_email, business_category_id) VALUES ('{$this->getBusinessName()}', '{$this->getBusinessPhone()}', '{$this->getBusinessContact()}', '{$this->getBusinessWebsite()}', '{$this->getBusinessAddress()}', '{$this->getBusinessContactEmail()}', {$this->getBusinessCategoryId()});");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
+        
 
 
 /////////////////STATIC------STATIC--------STATIC--------STATIC////////
