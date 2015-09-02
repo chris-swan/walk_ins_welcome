@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Business Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href='/'>Activities</a>
+                <a class="navbar-brand" href='/businesses'>Businesses</a>
+                <a class="navbar-brand" href='/userhome'>User Login</a>
+                <a class="navbar-brand" href='/businesshome'>Business Login</a>
+            </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            </div>
+        </div>
+        </nav>
+        <div class="container">
+
+            <form action='/businesshome' method='post'>
+                <label for='business_name'>Business name</label>
+                <input id='business_name' name='business_name' type='text'>
+                    <br>
+                <label for='business_phone'>Business Phone</label>
+                <input id='business_phone' name='business_phone' type='text'>
+                    <br>
+                <label for='business_contact'>Business Contact</label>
+                <input id='business_contact' name='business_contact' type='text'>
+                    <br>
+                <label for='business_website'>Business website</label>
+                <input id='business_website' name='business_website' type='text'>
+                    <br>
+                <label for='business_address'>Business address</label>
+                <input id='business_address' name='business_address' type='text'>
+                    <br>
+                <label for='business_contact_email'>business contact email</label>
+                <input id='business_contact_email' name='business_contact_email' type='text'>
+                    <br>
+                <button type='submit'>Add Business</button>
+            </form>
+
+            {% if businesses is not empty %}
+                <p> Here are the businesses offering fun things: </p>
+                <ul>
+                    {% for business in businesses %}
+                        <li><a href="/business/{{ business.getId }}">{{ business.getBusinessName }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>There are no businesses currently offering today</p>
+            {% endif %}
+
+
+
+        </div>
+    </body>
+</html>

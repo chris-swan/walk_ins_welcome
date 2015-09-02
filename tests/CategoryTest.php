@@ -6,6 +6,10 @@
 
     require_once "src/User.php";
     require_once "src/Category.php";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 41f7e03062f0eb2f1d65909acbca3f5505f2935c
 
     $server = 'mysql:host=localhost;dbname=walk_in_test';
     $username = 'root';
