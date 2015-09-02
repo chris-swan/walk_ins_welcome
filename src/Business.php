@@ -7,10 +7,9 @@
         private $business_website;
         private $business_address;
         private $business_contact_email;
-        private $business_category_id;
         private $id;
 
-        function __construct($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id=null)
+        function __construct($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id=null)
         {
             $this->business_name = $business_name;
             $this->business_phone = $business_phone;
@@ -18,7 +17,6 @@
             $this->business_website = $business_website;
             $this->business_address = $business_address;
             $this->business_contact_email = $business_contact_email;
-            $this->business_category_id = $business_category_id;
             $this->id = $id;
 
         }
@@ -93,16 +91,6 @@
         {
             $this->business_contact_email = $new_business_contact_email;
         }
-//////////////////////////// GET SET CAT ID ///////////////////////////////////
-        function getBusinessCategoryId()
-        {
-            return $this->business_category_id;
-        }
-
-        function setBusinessCategoryId($new_business_category_id)
-        {
-            $this->business_category_id = $new_business_category_id;
-        }
 
 //////////////////////////// GET SET CAT ID ///////////////////////////////////
         function getId()
@@ -112,9 +100,10 @@
 
 //////////////////////////////Save, Update/////////////////////////////
 ///////////////////////////////////////////////////////////////////////
+/////  MAY NEED TO CHANGE THE GetBusinessCategoryId and remove from this line:
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO businesses (business_name, business_phone, business_contact, business_website, business_address, business_contact_email, business_category_id) VALUES ('{$this->getBusinessName()}', '{$this->getBusinessPhone()}', '{$this->getBusinessContact()}', '{$this->getBusinessWebsite()}', '{$this->getBusinessAddress()}', '{$this->getBusinessContactEmail()}', {$this->getBusinessCategoryId()});");
+            $GLOBALS['DB']->exec("INSERT INTO businesses (business_name, business_phone, business_contact, business_website, business_address, business_contact_email) VALUES ('{$this->getBusinessName()}', '{$this->getBusinessPhone()}', '{$this->getBusinessContact()}', '{$this->getBusinessWebsite()}', '{$this->getBusinessAddress()}', '{$this->getBusinessContactEmail()}';");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -171,9 +160,8 @@
                 $business_website = $business['business_website'];
                 $business_address = $business['business_address'];
                 $business_contact_email = $business['business_contact_email'];
-                $business_category_id = $business['business_category_id'];
                 $id = $business['id'];
-                $new_business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+                $new_business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id);
                 array_push($businesses, $new_business);
             }
             return $businesses;
