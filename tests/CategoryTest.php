@@ -4,8 +4,10 @@
     *@backupStaticAttributes disabled
     */
 
-    require_once "src/user.php";
-    require_once "src/category.php";
+    require_once 'src/Business.php';
+    require_once 'src/Category.php';
+    require_once 'src/User.php';
+    require_once 'src/Activity.php';
 
     $server = 'mysql:host=localhost;dbname=walk_in_test';
     $username = 'root';

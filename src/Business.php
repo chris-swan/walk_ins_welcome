@@ -196,27 +196,29 @@
 //
 //         }
 //
-        function addActivityId($activity)
+        function addActivity($activity)
         {
-            $GLOBALS['DB']->exec("INSERT INTO businesses_activities (business_id, activity_id) VALUES ({$this->getId()}, {$activity->getId()});");
+            $GLOBALS['DB']->exec("INSERT INTO activities_businesses (activity_id,business_id) VALUES ({$activity->getId()}, {$this->getId()});");
         }
 
-        function getActivityId()
-    {
-        $query = $GLOBALS['DB']->query("SELECT activity_id FROM businesses_activities WHERE business_id = {$this->getId()};");
-        $activity_ids = $query->fetchAll(PDO::FETCH_ASSOC);
-        $activities = array();
-        foreach ($activity_ids as $id) {
-            $activity_id = $id['activity_id'];
-            $result = $GLOBALS['DB']->query("SELECT * FROM businesses WHERE id = {$activity_id};");
-            $returned_activity = $result->fetchAll(PDO::FETCH_ASSOC);
-            $activity_name = $returned_activity[0]['activity_name'];
-            $id = $returned_activity[0]['id'];
-            $new_activity = new Activity($activity_name, $id);
-            array_push($activities, $new_activity);
+        function getActivities()
+        {
+            $query = $GLOBALS['DB']->query("SELECT activity_id FROM activities_businesses WHERE business_id = {$this->getId()};");
+            $activity_ids = $query->fetchAll(PDO::FETCH_ASSOC);
+            $activities = array();
+            foreach ($activity_ids as $id) {
+                $activity_id = $id['activity_id'];
+                $result = $GLOBALS['DB']->query("SELECT * FROM activities WHERE id = {$activity_id};");
+                $returned_activity = $result->fetchAll(PDO::FETCH_ASSOC);
+                $activity_name = $returned_activity[0]['activity_name'];
+                $id = $returned_activity[0]['id'];
+                $new_activity = new Activity($activity_name, $id);
+                array_push($activities, $new_activity);
+            }
+            return $activities;
         }
-        return $activities;
-    }
+
+
     }
 
 
