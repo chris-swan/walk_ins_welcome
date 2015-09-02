@@ -168,11 +168,38 @@ Class Activity
             }
             return $found_activity;
         }
+
+
         //Add and get category
-        // function addCategory($category_name)
-        // {
-        //     $GLOBALS['DB']->exec("INSERT INTO activities_categories(activity_id, category_id) VALUES({$category_name->getId()}, {$this->getId()});");
-        // }
+        function addBusiness($business)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO activities_businesses (activity_id, business_id) VALUES ({$this->getId()}, {$business->getId()});");
+        }
+
+        function getBusinesses()
+        {
+            $activity_id=$this->getId();
+            $returned_businesses = $GLOBALS['DB']->query(
+            "SELECT businesses.* FROM activities
+            JOIN activities_businesses ON (activities.id = activities_businesses.activity_id)
+            JOIN businesses ON (activities_businesses.business_id = businesses.id)
+            WHERE activities.id = {$activity_id};");
+
+            $businesses = array();
+            foreach($returned_businesses as $business) {
+                $business_name = $business['business_name'];
+                $business_phone = $business['business_phone'];
+                $business_contact = $business['business_contact'];
+                $business_website = $business['business_website'];
+                $business_address = $business['business_address'];
+                $business_contact_email = $business['business_contact_email'];
+                $business_category_id = $business['business_category_id'];
+                $id = $business['id'];
+                $new_business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+                array_push($businesses, $new_business);
+            }
+            return $businesses;
+        }
 
 
     }
