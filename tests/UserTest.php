@@ -281,7 +281,7 @@
             $this->assertEquals($test_user, $result[0]);
         }
 
-        function testDeleteOne()
+        function testDelete()
         {
             $user_name = "Wolf";
             $user_buy_quantity = 5;
@@ -292,17 +292,22 @@
             $test_user = new User($user_name, $user_buy_quantity, $user_phone, $user_email, $activity_id, $id);
             $test_user->save();
 
-            $user_name2 = "WolfMan";
-            $id2 = 2;
-            $test_user2 = new User($user_name2, $user_buy_quantity, $user_phone, $user_email, $activity_id, $id2);
-            $test_user2->save();
+            $activity_name = "Activity One";
+            $activity_date = '2016-01-01';
+            $activity_location = "Location";
+            $activity_description = "Description of Activity One";
+            $activity_price = "Price of Activity One";
+            $activity_quantity = 10;
+            $business_id = 1;
+            $activity_category_id = 2;
+            $id = 1;
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+            $test_activity->save();
 
-            $test_user->deleteOne();
+            $test_user->addActivity($test_user);
+            $test_user->delete();
 
-            $result = User::getAll();
-
-            $this->assertEquals($test_user2, $result[0]);
-
+            $this->assertEquals([], $test_user->getActivities());
         }
 
         function testFind()
