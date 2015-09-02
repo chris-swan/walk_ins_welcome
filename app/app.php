@@ -63,7 +63,7 @@
         $business_website = $_POST['business_website'];
         $business_address = $_POST['business_address'];
         $business_contact_email = $_POST['business_contact_email'];
-        $business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
+        $business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id=null);
         $business->save();
         return $app['twig']->render('businesshome.html.twig', array('businesses' => Business::getAll()));
     });
