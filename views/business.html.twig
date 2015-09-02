@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Business</title>
+    </head>
+    <body>
+
+        <div class="container">
+        {% if businesses is not empty %}
+            <p> Here are the businesses offering fun things: </p>
+            <ul>
+                {% for business in businesses %}
+                    <li><a href="/business/{{ business.getId }}">{{ business.getbusinessName }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no businesses currently offering today</p>
+        {% endif %}
+
+    </body>
+</html>

@@ -183,6 +183,7 @@
         static function DeleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM businesses;");
+            $GLOBALS['DB']->exec("DELETE FROM activities_businesses;");
         }
 
 
@@ -191,15 +192,37 @@
 //
 //         //////////////////////////Join Table getters/////////////////////////
 //         /////////////////////////////////////////////////////////////////////
-//         function getCategoryId()
-//         {
-//
-//         }
-//
-//         function getActivityId()
-//         {
-//
-//         }
+
+        function addActivity($activity)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO activities_businesses (activity_id, business_id) VALUES ({$activity->getId()}, {$this->getId()});");
+        }
+
+        function getActivities()
+        {
+            $business_id=$this->getId();
+            $returned_activities = $GLOBALS['DB']->query(
+            "SELECT activities.* FROM businesses
+            JOIN activities_businesses ON (businesses.id = activities_businesses.business_id)
+            JOIN activities ON (activities_businesses.activity_id = activities.id)
+            WHERE businesses.id = {$business_id};");
+
+            $activities = array();
+            foreach($returned_activities as $activity) {
+                $activity_name = $activity['activity_name'];
+                $activity_date = $activity['activity_date'];
+                $activity_location = $activity['activity_location'];
+                $activity_description = $activity['activity_description'];
+                $activity_price = $activity['activity_price'];
+                $activity_quantity = $activity['activity_quantity'];
+                $business_id = $activity['business_id'];
+                $activity_category_id = $activity['activity_category_id'];
+                $id = $activity['id'];
+                $new_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+                array_push($activities, $new_activity);
+            }
+            return $activities;
+        }
     }
 
 
