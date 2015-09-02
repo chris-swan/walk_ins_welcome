@@ -25,7 +25,7 @@
         return $app['twig']->render('index.html.twig', array('activities'=>Activity::getAll()));
     });
 
-    //Path to activity to update activities set up by the businesses
+    //Path to view activity(and allow for user to purchase/get activity)
     $app->get("/activity/{id}", function($id) use ($app) {
         $activity = Activity::find($id);
         $activity_id = $activity->getId();
