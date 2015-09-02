@@ -18,7 +18,9 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href='/'>Activities</a>
-                <a class="navbar-brand" href='/userhome'>Add or view specific user</a>
+                <a class="navbar-brand" href='/businesses'>Businesses</a>
+                <a class="navbar-brand" href='/userhome'>User Login</a>
+                <a class="navbar-brand" href='/businesses'>Business Login</a>
             </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             </div>
@@ -26,27 +28,27 @@
         </nav>
 <body>
     {% if users is not empty %}
-        <p> Here are the users offering fun things: </p>
+        <p> Here are the users: </p>
         <ul>
             {% for user in users %}
-                <li><a href="/user/{{ user.getId }}">{{ user.getuserName }}</a></li>
+                <li><a href="/userhome/{{ user.getId }}">{{ user.getUserName }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>There are no users currently offering today</p>
+        <p>There are no users in the system</p>
     {% endif %}
 
-    <form action='/users' method='post'>
-        <label for='user_name'>user name</label>
+    <form action='/userhome' method='post'>
+        <label for='user_name'>User Name</label>
         <input id='user_name' name='user_name' type='text'>
             <br>
-        <label for='user_phone'>user Phone</label>
+        <label for='user_phone'>User Phone</label>
         <input id='user_phone' name='user_phone' type='text'>
 
-        <label for='user_email'>user website</label>
+        <label for='user_email'>User Website</label>
         <input id='user_email' name='user_email' type='text'>
 
-        <label for='user_address'>user address</label>
+        <label for='user_address'>User Address</label>
         <input id='user_address' name='user_address' type='text'>
 
         <button type='submit'>Add user</button>
