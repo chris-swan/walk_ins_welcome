@@ -27,27 +27,29 @@
         </div>
         </nav>
 <body>
-    {% if users is not empty %}
-        <p> Here are the users: </p>
-        <ul>
-            {% for user in users %}
-                <li><a href="/userhome/{{ user.getId }}">{{ user.getUserName }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>There are no users in the system</p>
-    {% endif %}
+    <div class='container'>
+        {% if users is not empty %}
+            <p> Here are the users: </p>
+            <ul>
+                {% for user in users %}
+                    <li><a href="/userhome/{{ user.getId }}">{{ user.getUserName }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no users in the system</p>
+        {% endif %}
 
-    <form action='/userhome' method='post'>
-        <label for='user_name'>User Name</label>
-        <input id='user_name' name='user_name' type='text'>
-            <br>
-        <label for='user_phone'>User Phone</label>
-        <input id='user_phone' name='user_phone' type='text'>
-            <br>
-        <label for='user_email'>User Email</label>
-        <input id='user_email' name='user_email' type='text'>
-            <br>
-        <button type='submit'>Add user</button>
-    </form>
+        <form action='/userhome' method='post'>
+            <label for='user_name'>User Name</label>
+            <input id='user_name' name='user_name' type='text'>
+                <br>
+            <label for='user_phone'>User Phone</label>
+            <input id='user_phone' name='user_phone' type='text'>
+                <br>
+            <label for='user_email'>User Email</label>
+            <input id='user_email' name='user_email' type='text'>
+                <br>
+            <button type='submit'>Add user</button>
+        </form>
+    </div>
 </body>
