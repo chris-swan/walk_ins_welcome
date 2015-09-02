@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form action="/userhome/{{ user.getId }}" method="post">
+            <input name="_method" type="hidden" value="patch">
+        </form>
+        <div class='form-group'>
+            <input id="user_name" name="user_name" type="text" placeholder="update user info">
+            <button type="submit" class="btn-primary">Update</button>
+        </div>
+        <form action='/delete_user' method='post'>
+            <button type='submit' class = "btn-danger">Delete this User</button>
+    </body>
+</html>

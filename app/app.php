@@ -50,18 +50,21 @@
         return $app['twig']->render('business.html.twig', array('business' => $business, 'all_activities' => Activity::getAll()));
     });
 
+    $app->get("/businesshome", function() use ($app) {
+       return $app['twig']->render('businesshome.html.twig', array('businesses'=>Business::getAll()));
+    });
 
-    //add a new business to businesses
-    $app->post("/businesses", function() use ($app) {
+    //add a new business to businesses from business home
+    $app->post("/businesshome", function() use ($app) {
         $business_name = $_POST['business_name'];
         $business_phone = $_POST['business_phone'];
         $business_contact = $_POST['business_contact'];
         $business_website = $_POST['business_website'];
         $business_address = $_POST['business_address'];
         $business_contact_email = $_POST['business_contact_email'];
-        $business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id=null);
+        $business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id = null, $id=null);
         $business->save();
-        return $app['twig']->render('businesses.html.twig', array('businesses' => Business::getAll()));
+        return $app['twig']->render('businesshome.html.twig', array('businesses' => Business::getAll()));
     });
 
     //specific business viewing page to be viewed by the user.
@@ -71,25 +74,30 @@
         return $app['twig']->render('business.html.twig', array('business' => $business, 'all_activities' => Activity::getAll()));
     });
 
+    //Path to update business info --- NOT FINISHED AND NEEDS PROPER THINGS!
+    $app->get("/updatebusiness", function() use ($app) {
+        return $app['twig']->render('updatebusiness.html.twig', array ('businesses'=> Business:: getAll));
+    });
 
-    //path to userhome for entering and adjusting user information
+    //path to userhome for viewing current users and adding new
     $app->get("/userhome", function() use ($app) {
-        return $app['twig']->render('userhome.html.twig', array('activities'=>Activity::getAll()));
-    });
-
-    //path to specific users account info and activity info
-    $app->get("/userhome/{id}", function() use ($app) {
-        return $app['twig'];
-    });
-
-    //Update info
-    $app->post("/users/{id}", function() use ($app) {
-        $user = new User($_POST['user_name']);
-        $user->save();
         return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
     });
 
+    //path to specific users account info and activity info
+    $app->get("/updateuser/{id}", function() use ($app) {
+        return $app['twig']->render('updateuser.html.twig', array('users' => User::getAll()));
+    });
 
+    //Update info
+    $app->post("/userhome", function() use ($app) {
+        $user = new User($_POST['user_name']);
+        $user = new User($_POST['user_phone']);
+        $user = new User($_POST['user_email']);
+        $user = new User($user_name, $user_buy_quantity = null, $user_phone, $user_email, $activity_id = null, $id = null);
+        $user->save();
+        return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
+    });
 
     return $app
 ?>
