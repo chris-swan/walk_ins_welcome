@@ -11,6 +11,7 @@
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
+
     class UserTest extends PHPUnit_Framework_TestCase {
 
         protected function tearDown() {
