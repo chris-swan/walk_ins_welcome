@@ -4,7 +4,10 @@
     * @backupStaticAttributes disabled
     */
 
-    require_once "src/User.php";
+    require_once 'src/Business.php';
+    require_once 'src/Category.php';
+    require_once 'src/User.php';
+    require_once 'src/Activity.php';
 
 
     $server = 'mysql:host=localhost;dbname=walk_in_test';
@@ -16,6 +19,7 @@
 
         protected function tearDown() {
             User::deleteAll();
+            Activity::deleteAll();
         }
 
         function testGetUserName()
@@ -257,7 +261,6 @@
             $test_user->update();
 
             $result = User::getAll();
-            var_dump($result);
 
             $this->assertEquals($test_user, $result[0]);
         }
@@ -322,6 +325,79 @@
 
             $this->assertEquals($test_user, $result);
         }
+
+        function testAddActivity()
+        {
+            $user_name = "Wolf";
+            $user_buy_quantity = 5;
+            $user_phone = '1234567890';
+            $user_email = "howl@yellowstone.com";
+            $activity_id = 100;
+            $id = 1;
+            $test_user = new User($user_name, $user_buy_quantity, $user_phone, $user_email, $activity_id, $id);
+            $test_user->save();
+
+            $activity_name = "Activity One";
+            $activity_date = '2016-01-01';
+            $activity_location = "Location";
+            $activity_description = "Description of Activity One";
+            $activity_price = "Price of Activity One";
+            $activity_quantity = 10;
+            $business_id = 1;
+            $activity_category_id = 2;
+            $id = 1;
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+            $test_activity->save();
+
+            $test_user->addActivity($test_activity);
+            $result = $test_user->getActivities();
+
+            $this->assertEquals($test_activity, $result[0]);
+        }
+
+        function testGetActivity()
+        {
+            $activity_name = "Activity One";
+            $activity_date = '2016-01-01';
+            $activity_location = "Location";
+            $activity_description = "Description of Activity One";
+            $activity_price = "Price of Activity One";
+            $activity_quantity = 10;
+            $business_id = 1;
+            $activity_category_id = 2;
+            $id = 1;
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+            $test_activity->save();
+
+            $activity_name2 = "Activity Two";
+            $activity_date2 = '2016-02-02';
+            $activity_location2 = "Location Two";
+            $activity_description2 = "Description of Activity Two";
+            $activity_price2 = "Price of Activity Two";
+            $activity_quantity2 = 20;
+            $business_id2 = 21;
+            $activity_category_id2 = 22;
+            $id2 = 2;
+            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+            $test_activity2->save();
+
+            $user_name = "Wolf";
+            $user_buy_quantity = 5;
+            $user_phone = '1234567890';
+            $user_email = "howl@yellowstone.com";
+            $activity_id = 100;
+            $id = 1;
+            $test_user = new User($user_name, $user_buy_quantity, $user_phone, $user_email, $activity_id, $id);
+            $test_user->save();
+
+            $test_user->addActivity($test_activity);
+            $test_user->addActivity($test_activity2);
+
+            $result = $test_user->getActivities();
+
+            $this->assertEquals([$test_activity, $test_activity2], $result);
+        }
+
 
     }
 

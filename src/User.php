@@ -124,6 +124,38 @@
             }
         }
 
+        function addActivity($activity)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO activities_users (activity_id, user_id) VALUES ({$this->getId()}, {$activity->getId()});");
+        }
+
+
+        function getActivities()
+        {
+            $query = $GLOBALS['DB']->query("SELECT activities.* FROM users
+                                                JOIN activities_users ON (user.id = activities_users.user_id)
+                                                JOIN activities ON (activities_users.activity_id = activity.id)
+                                                WHERE user.id = {$this->getId()};");
+
+            // $activities = $query->fetchAll(PDO::FETCH_ASSOC);
+            $activities_array = array();
+            foreach($query as $activity)
+            {
+                $activity_name = $activity['activity_name'];
+                $activity_date = $activity['activity_date'];
+                $activity_location = $activity['activity_location '];
+                $activity_description = $activity['activity_description'];
+                $activity_price = $activity['activity_price'];
+                $activity_quantity = $activity['activity_quantity'];
+                $business_id = $activity['business_id'];
+                $activity_category_id = $activity['activity_category_id'];
+                $id = $activity['id'];
+                $new_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+                array_push($activities_array, $new_activity);
+            }
+            return $activities_array;
+        }
+
     }
 
  ?>
