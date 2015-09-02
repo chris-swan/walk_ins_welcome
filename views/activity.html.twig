@@ -1,20 +1,41 @@
 <html>
     <head>
         <title>Walk ins Welcome</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <link rel="stylesheet" href="/css/styles.css">
     </head>
     <body>
-        <h1>Activities</h1>
-
-        {% if activities is not empty %}
-            <p> Here are the activities to go do: </p>
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href='/'>Activities</a>
+                <a class="navbar-brand" href='/businesses'>Businesses</a>
+                <a class="navbar-brand" href='/userhome'>User Login</a>
+                <a class="navbar-brand" href='/businesshome'>Business Login</a>
+            </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            </div>
+        </div>
+        </nav>
+        <div class='container'>
+            <h1>{{ activity.getActivityName }}</h1>
+            <h2>This activity is hosted by {{ business.getBusinessName }}</h2>
             <ul>
-                {% for activity in activities %}
-                    <li><a href="/activity/{{ activity.getId }}">{{ activity.getActivityName }}</a></li>
-                {% endfor %}
+                <li>{{ activity.getActivityDate }}</li>
+                <li>{{ activity.getActivityLocation }}</li>
+                <li>{{ activity.getActivityDescription }}</li>
+                <li>{{ activity.getActivityPrice }}</li>
+                <li>{{ activity.getActivityQuantity }}</li>
             </ul>
-        {% else %}
-            <p>There are no activities today</p>
-        {% endif %}
-
+            
+            <button type='submit'>RSVP</button>
+        </div>
     </body>
 </html>
