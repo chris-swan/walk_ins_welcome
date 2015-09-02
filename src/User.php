@@ -86,9 +86,10 @@
 
         }
 
-        function deleteOne()
+        function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM users WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM activities_users WHERE user_id = {$this->getId()};");
         }
 
         static function deleteAll()
@@ -123,6 +124,39 @@
                 }
             }
         }
+
+        function addActivity($activity)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO activities_users (activity_id, user_id) VALUES ({$activity->getId()}, {$this->getId()});");
+        }
+
+
+        function getActivities()
+        {
+            $query = $GLOBALS['DB']->query("SELECT activities.* FROM users
+                            JOIN activities_users ON (users.id = activities_users.user_id)
+                            JOIN activities ON (activities_users.activity_id = activities.id)
+                            WHERE users.id = {$this->getId()};");
+
+            $activities_array = array();
+            foreach($query as $activity)
+            {
+                $activity_name = $activity['activity_name'];
+                $activity_date = $activity['activity_date'];
+                $activity_location = $activity['activity_location'];
+                $activity_description = $activity['activity_description'];
+                $activity_price = $activity['activity_price'];
+                $activity_quantity = $activity['activity_quantity'];
+                $business_id = $activity['business_id'];
+                $activity_category_id = $activity['activity_category_id'];
+                $id = $activity['id'];
+                $new_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+                array_push($activities_array, $new_activity);
+            }
+            return $activities_array;
+        }
+
+
 
     }
 
