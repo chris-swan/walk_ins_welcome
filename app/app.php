@@ -25,7 +25,7 @@
         return $app['twig']->render('index.html.twig', array('activities'=>Activity::getAll()));
     });
 
-    //Path to activity to update activities set up by the businesses
+    //Path to view activity(and allow for user to purchase/get activity)
     $app->get("/activity/{id}", function($id) use ($app) {
         $activity = Activity::find($id);
         $activity_id = $activity->getId();
@@ -50,6 +50,7 @@
         return $app['twig']->render('business.html.twig', array('business' => $business, 'all_activities' => Activity::getAll()));
     });
 
+    //View a list of all businesses
     $app->get("/businesshome", function() use ($app) {
        return $app['twig']->render('businesshome.html.twig', array('businesses'=>Business::getAll()));
     });
@@ -62,7 +63,7 @@
         $business_website = $_POST['business_website'];
         $business_address = $_POST['business_address'];
         $business_contact_email = $_POST['business_contact_email'];
-        $business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id = null, $id=null);
+        $business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
         $business->save();
         return $app['twig']->render('businesshome.html.twig', array('businesses' => Business::getAll()));
     });
@@ -75,8 +76,8 @@
     });
 
     //Path to update business info --- NOT FINISHED AND NEEDS PROPER THINGS!
-    $app->get("/updatebusiness", function() use ($app) {
-        return $app['twig']->render('updatebusiness.html.twig', array ('businesses'=> Business:: getAll));
+    $app->get("/updatebusiness/{id}", function() use ($app) {
+        return $app['twig']->render('updatebusiness.html.twig', array ('business'=> $business));
     });
 
     //path to userhome for viewing current users and adding new
@@ -86,17 +87,35 @@
 
     //path to specific users account info and activity info
     $app->get("/updateuser/{id}", function() use ($app) {
-        return $app['twig']->render('updateuser.html.twig', array('users' => User::getAll()));
+        return $app['twig']->render('updateuser.html.twig', array('user' => $user));
     });
 
-    //Update info
+    //Update user info
     $app->post("/userhome", function() use ($app) {
-        $user = new User($_POST['user_name']);
-        $user = new User($_POST['user_phone']);
-        $user = new User($_POST['user_email']);
+        $user_name = $_POST['user_name'];
+        $user_phone = $_POST['user_phone'];
+        $user_email = $_POST['user_email'];
         $user = new User($user_name, $user_buy_quantity = null, $user_phone, $user_email, $activity_id = null, $id = null);
         $user->save();
         return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
+    });
+
+    //Path to update and activity
+    $app->get("/updateactivity/{id}", function() use ($app) {
+        return $app['twig']->render('updateactivity.html.twig', array ('activity'=> $activity));
+    });
+
+    //Update activity info
+    $app->post("/updateactivity/{id}", function() use($app) {
+        $activity_name = $_POST['activity_name'];
+        $activity_date = $_POST['activity_date'];
+        $activity_location = $_POST['activity_location'];
+        $activity_description = $_POST['activity_description'];
+        $activity_price = $_POST['activity_price'];
+        $activity_quantity = $_POST['activity_quantity'];
+        $activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id = null, $activity_category_id = null, $id = null);
+        $activity->save();
+        return $app['twig']->render('updateactivity.html.twig', array('activities' => Activity::getAll()));
     });
 
     return $app

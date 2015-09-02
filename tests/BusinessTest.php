@@ -38,11 +38,10 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fake.email";
-            $business_category_id = 4;
             $business_login = "username1";
             $business_password= "chocolate";
             $id =3;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $business_login, $business_password, $id=null);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_login, $business_password, $id=null);
 
             //Act
             $result = $test_business->getBusinessName();
@@ -61,9 +60,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fake.email";
-            $business_category_id= 4;
             $id= 5;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
 
 
             //Act
@@ -84,9 +82,8 @@
           $business_website = "walkins.com";
           $business_address ="123 fake st";
           $business_contact_email = "me@fake.email";
-          $business_category_id= 4;
           $id= 5;
-          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
 
 
           //Act
@@ -108,9 +105,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fake.email";
-            $business_category_id= 4;
             $id= 5;
-            $test_business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+            $test_business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
 
             //Act
             $test_business->setBusinessPhone("5033133131");
@@ -131,9 +127,8 @@
           $business_website = "walkins.com";
           $business_address ="123 fake st";
           $business_contact_email = "me@fake.email";
-          $business_category_id= 4;
           $id= 5;
-          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
 
 
           //Act
@@ -152,9 +147,8 @@
           $business_website = "walkins.com";
           $business_address ="123 fake st";
           $business_contact_email = "me@fake.email";
-          $business_category_id= 4;
           $id= 5;
-          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
 
 
           //Act
@@ -176,9 +170,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fake.email";
-            $business_category_id= 4;
             $id= 5;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
 
             //Act
             $result = $test_business->getBusinessWebsite();
@@ -197,9 +190,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fake.email";
-            $business_category_id= 4;
             $id= 5;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
 
 
             //Act
@@ -221,9 +213,8 @@
           $business_website = "walkins.com";
           $business_address ="123 fake st.";
           $business_contact_email = "me@fake.email";
-          $business_category_id= 4;
           $id= 5;
-          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
 
           //Act
           $result = $test_business->getBusinessAddress();
@@ -241,9 +232,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fake.email";
-            $business_category_id= 4;
             $id= 5;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
 
             //Act
             $test_business->setBusinessAddress("123 fake st");
@@ -263,9 +253,8 @@
           $business_website = "walkins.com";
           $business_address ="123 fake st";
           $business_contact_email = "me@fakeemail.com";
-          $business_category_id= 4;
           $id= 5;
-          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
 
           //Act
           $result = $test_business->getBusinessContactEmail();
@@ -283,9 +272,8 @@
           $business_website = "walkins.com";
           $business_address ="123 fake st";
           $business_contact_email = "me@fakeemail.com";
-          $business_category_id= 4;
           $id= 5;
-          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
 
           //Act
           $test_business->setBusinessContactEmail("me@fakeemail.com");
@@ -294,51 +282,6 @@
           //Assert
           $this->assertEquals ("me@fakeemail.com", $result);
         }
-
-/////////////////////// GET SET BUSINESS CATEGORY ID  //////////////////////////////////
-        function testGetBusinessCategoryId()
-        {
-          //Arrange
-          $business_name="IBM";
-          $business_phone= "5033133131";
-          $business_contact = "john";
-          $business_website = "walkins.com";
-          $business_address ="123 fake st";
-          $business_contact_email = "me@fakeemail.com";
-          $business_category_id= 4;
-          $id= 5;
-          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
-
-          //Act
-          $result = $test_business->getBusinessCategoryId();
-
-          //Assert
-          $this->assertEquals (4, $result);
-        }
-
-        function testSetBusinessCategoryId()
-        {
-          //Arrange
-          $business_name="IBM";
-          $business_phone= "5033133131";
-          $business_contact = "john";
-          $business_website = "walkins.com";
-          $business_address ="123 fake st";
-          $business_contact_email = "me@fakeemail.com";
-          $business_category_id= 4;
-          $id= 5;
-          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
-
-          //Act
-          $test_business->setBusinessCategoryId(4);
-          $result = $test_business->getBusinessCategoryId();
-
-          //Assert
-          $this->assertEquals (4, $result);
-        }
-
-
-
 // //////////////////Save, GetAll, DeleteAll, Find, Update//////////////
 // /////////////////////////////////////////////////////////////////////
         function testSave()
@@ -350,9 +293,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fakeemail.com";
-            $business_category_id= 1;
             $id= 1;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id = null);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id = null);
 
             //Act
             $test_business->save();
@@ -371,9 +313,8 @@
           $business_website = "walkins.com";
           $business_address ="123 fake st";
           $business_contact_email = "me@fakeemail.com";
-          $business_category_id= 14;
           $id= 1;
-          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id);
           $test_business->save();
 
           $business_name2="Smoke Signals";
@@ -382,9 +323,8 @@
           $business_website2 = "Signal.com";
           $business_address2 ="123 getreal st";
           $business_contact_email2 = "me@realemail.com";
-          $business_category_id2= 2;
           $id2= 2;
-          $test_business2 = new Business($business_name2, $business_phone2, $business_contact2, $business_website2, $business_address2, $business_contact_email2, $business_category_id2, $id2);
+          $test_business2 = new Business($business_name2, $business_phone2, $business_contact2, $business_website2, $business_address2, $business_contact_email2, $id2);
           $test_business2->save();
 
           //Act
@@ -412,9 +352,8 @@
           $business_website = "walkins.com";
           $business_address ="123 fake st";
           $business_contact_email = "me@fakeemail.com";
-          $business_category_id= 14;
           $id= 1;
-          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+          $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id);
           $test_business->save();
 
           $business_name2="Smoke Signals";
@@ -423,9 +362,8 @@
           $business_website2 = "Signal.com";
           $business_address2 ="123 getreal st";
           $business_contact_email2 = "me@realemail.com";
-          $business_category_id2= 2;
           $id2= 2;
-          $test_business2 = new Business($business_name2, $business_phone2, $business_contact2, $business_website2, $business_address2, $business_contact_email2, $business_category_id2, $id2);
+          $test_business2 = new Business($business_name2, $business_phone2, $business_contact2, $business_website2, $business_address2, $business_contact_email2, $id2);
           $test_business2->save();
 
 
@@ -445,9 +383,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fakeemail.com";
-            $business_category_id= 14;
             $id= 1;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id);
             $test_business->save();
 
 
@@ -468,9 +405,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fakeemail.com";
-            $business_category_id= 14;
             $id= 1;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id);
             $test_business->save();
 
 
@@ -491,9 +427,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fakeemail.com";
-            $business_category_id= 14;
             $id= 1;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id);
             $test_business->save();
 
 
@@ -514,9 +449,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fakeemail.com";
-            $business_category_id= 14;
             $id= 1;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id);
             $test_business->save();
 
 
@@ -550,9 +484,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fakeemail.com";
-            $business_category_id= 14;
             $id= 1;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id);
             $test_business->save();
 
             $activity_name = "Activity One";
@@ -584,9 +517,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fakeemail.com";
-            $business_category_id= 14;
             $id= 1;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id);
             $test_business->save();
 
             $activity_name = "Activity One";
