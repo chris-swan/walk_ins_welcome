@@ -16,38 +16,5 @@
             <p>There are no activities today</p>
         {% endif %}
 
-        <h3>Add a ac
-    </body>
-</html>
-
-
-
-
-<html>
-    <head>
-        <title>Walk ins Welcome</title>
-    </head>
-    <body>
-        <h1>Activities</h1>
-
-        {% if activities is not empty %}
-            <p> Here are the activities to go do: </p>
-            <ul>
-                {% for activity in activities %}
-                    <li><a href="/activity/{{ activity.getId }}">{{ activity.getActivityName }}</a></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>There are no activities today</p>
-        {% endif %}
-
-        <h3>Add an activity</h3>
-        <form action='/activities' method='post'>
-            <label for='activity_name'>activity name</label>
-            <input id='activity_name' name='activity_name' type='text'>
-
-            <button type='submit'>Add activity</button>
-        </form>
-        <p><a href='/'>Home</a></p>
     </body>
 </html>

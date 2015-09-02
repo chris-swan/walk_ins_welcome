@@ -37,9 +37,10 @@
             $GLOBALS['DB']->exec("UPDATE categories SET category_name = '{$this->getCategoryName()}' WHERE id = {$this->getId()};");
         }
 
-        function deleteOne()
+        function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM categories WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM activities_categories WHERE category_id = {$this->getId()};");
         }
 
         static function deleteAll()
@@ -68,6 +69,36 @@
                    return $category;
                }
             }
+        }
+
+        function addActivity($activity)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO activities_categories (activity_id, category_id) VALUES ({$activity->getId()}, {$this->getId()});");
+        }
+
+        function getActivities()
+        {
+            $query = $GLOBALS['DB']->query("SELECT activities.* FROM categories
+                            JOIN activities_categories ON (categories.id = activities_categories.category_id)
+                            JOIN activities ON (activities_categories.activity_id = activities.id)
+                            WHERE categories.id = {$this->getId()};");
+
+            $activities_array = array();
+            foreach($query as $activity)
+            {
+                $activity_name = $activity['activity_name'];
+                $activity_date = $activity['activity_date'];
+                $activity_location = $activity['activity_location'];
+                $activity_description = $activity['activity_description'];
+                $activity_price = $activity['activity_price'];
+                $activity_quantity = $activity['activity_quantity'];
+                $business_id = $activity['business_id'];
+                $activity_category_id = $activity['activity_category_id'];
+                $id = $activity['id'];
+                $new_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+                array_push($activities_array, $new_activity);
+            }
+            return $activities_array;
         }
 
     }

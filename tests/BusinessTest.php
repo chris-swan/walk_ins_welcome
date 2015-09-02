@@ -24,6 +24,7 @@
           //  Category::deleteAll();
           //  User::deleteAll();
            Activity::deleteAll();
+
        }
 //////////////////////////////////////TESTS///////////////////////////////////
 
@@ -620,6 +621,9 @@
             //Assert
             $this->assertEquals([$test_activity, $test_activity2], $result);
         }
+
+
+
 
 
 

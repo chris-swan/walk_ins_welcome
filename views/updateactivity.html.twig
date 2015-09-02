@@ -24,9 +24,8 @@
             </div>
         </div>
         </nav>
-        <div class='container'>
-            <h1>Go do something awesome!</h1>
-            <h2>Activities</h2>
+        <div = class='containter'>
+            <h1>Activities</h1>
 
             {% if activities is not empty %}
                 <p> Here are the activities to go do: </p>
@@ -38,6 +37,31 @@
             {% else %}
                 <p>There are no activities today</p>
             {% endif %}
-        </div>
+
+            <h3>Update an Activity</h3>
+                <form action='/updateactivity/{{ activity.getId }}' method='post'>
+                    <input name="_method" type="hidden" value="patch">
+
+                    <label for='activity_name'>activity name</label>
+                    <input id='activity_name' name='activity_name' type='text'>
+                        <br>
+                    <label for='activity_date'>activity date</label>
+                    <input id='activity_date' name='activity_date' type='text'>
+                        <br>
+                    <label for='activity_location'>activity location</label>
+                    <input id='activity_location' name='activity_location' type='text'>
+                        <br>
+                    <label for='activity_description'>activity description</label>
+                    <input id='activity_description' name='activity_description' type='text'>
+                        <br>
+                    <label for='activity_price'>activity price</label>
+                    <input id='activity_price' name='activity_price' type='text'>
+                        <br>
+                    <label for='activity_quantity'>activity location email</label>
+                    <input id='activity_quantity' name='activity_quantity' type='text'>
+                        <br>
+                    <button type='submit'>Add activity</button>
+                </form>
+            </div>
     </body>
 </html>
