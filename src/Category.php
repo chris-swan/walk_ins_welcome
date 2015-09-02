@@ -37,9 +37,10 @@
             $GLOBALS['DB']->exec("UPDATE categories SET category_name = '{$this->getCategoryName()}' WHERE id = {$this->getId()};");
         }
 
-        function deleteOne()
+        function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM categories WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM activities_categories WHERE category_id = {$this->getId()};");
         }
 
         static function deleteAll()

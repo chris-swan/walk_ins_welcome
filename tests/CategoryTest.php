@@ -95,23 +95,30 @@
             $this->assertEquals([], $result);
         }
 
-        function testDeleteOne()
+        function testDelete()
         {
             $category_name = "music";
             $new_category = new Category($category_name);
             $new_category->save();
 
-            $category_name2 = "arts";
-            $new_category2 = new Category($category_name);
-            $new_category2->save();
+            $activity_name = "Activity One";
+            $activity_date = '2016-01-01';
+            $activity_location = "Location";
+            $activity_description = "Description of Activity One";
+            $activity_price = "Price of Activity One";
+            $activity_quantity = 10;
+            $business_id = 1;
+            $activity_category_id = 2;
+            $id = 1;
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+            $test_activity->save();
 
-            $new_category->deleteOne();
+            $new_category->addActivity($new_category);
+            $new_category->delete();
 
-            $result = Category::getAll();
-
-            $this->assertEquals($new_category2, $result[0]);
-
+            $this->assertEquals([], $new_category->getActivities());
         }
+
 
         function testUpdate()
         {
