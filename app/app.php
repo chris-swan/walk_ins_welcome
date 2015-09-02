@@ -91,9 +91,9 @@
 
     //Update info
     $app->post("/userhome", function() use ($app) {
-        $user = new User($_POST['user_name']);
-        $user = new User($_POST['user_phone']);
-        $user = new User($_POST['user_email']);
+        $user_name = $_POST['user_name'];
+        $user_phone = $_POST['user_phone'];
+        $user_email = $_POST['user_email'];
         $user = new User($user_name, $user_buy_quantity = null, $user_phone, $user_email, $activity_id = null, $id = null);
         $user->save();
         return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
