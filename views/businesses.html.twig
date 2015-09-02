@@ -1,11 +1,9 @@
 <html>
 <head>
-    <title>Walk ins Welcome</title>
-</head>
-        <title>Business Home</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-        <link rel="stylesheet" href="/css/styles.css">
+    <title>Business Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/css/styles.css">
     </head>
     <body>
         <nav class="navbar navbar-inverse">
@@ -18,7 +16,9 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href='/'>Activities</a>
-                <a class="navbar-brand" href='/businesshome'>Add or view specific business</a>
+                <a class="navbar-brand" href='/businesses'>Businesses</a>
+                <a class="navbar-brand" href='/userhome'>User Login</a>
+                <a class="navbar-brand" href='/businesses'>Business Login</a>
             </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             </div>
@@ -37,8 +37,24 @@
     {% endif %}
 
     <form action='/businesses' method='post'>
-        <label for='name'>Business name</label>
-        <input id='name' name='name' type='text'>
+        <label for='business_name'>Business name</label>
+        <input id='business_name' name='business_name' type='text'>
+            <br>
+        <label for='business_phone'>Business Phone</label>
+        <input id='business_phone' name='business_phone' type='text'>
+
+        <label for='business_contact'>Business Contact</label>
+        <input id='business_contact' name='business_contact' type='text'>
+
+        <label for='business_website'>Business website</label>
+        <input id='business_website' name='business_website' type='text'>
+
+        <label for='business_address'>Business address</label>
+        <input id='business_address' name='business_address' type='text'>
+
+        <label for='business_contact_email'>business contact email</label>
+        <input id='business_contact_email' name='business_contact_email' type='text'>
+
         <button type='submit'>Add Business</button>
     </form>
 </body>
