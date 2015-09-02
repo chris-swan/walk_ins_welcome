@@ -85,7 +85,8 @@
             $GLOBALS['DB']->exec("UPDATE users SET user_name = '{$this->getUserName()}' WHERE id = {$this->getId()};");
 
         }
-
+        
+//not completely sure that the delete function is working
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM users WHERE id = {$this->getId()};");
@@ -130,7 +131,7 @@
             $GLOBALS['DB']->exec("INSERT INTO activities_users (activity_id, user_id) VALUES ({$activity->getId()}, {$this->getId()});");
         }
 
-
+//This join statement joins activities and users on the activities_users join table.
         function getActivities()
         {
             $query = $GLOBALS['DB']->query("SELECT activities.* FROM users
