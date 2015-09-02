@@ -24,6 +24,7 @@
           //  Category::deleteAll();
           //  User::deleteAll();
            Activity::deleteAll();
+
        }
 //////////////////////////////////////TESTS///////////////////////////////////
 
@@ -571,7 +572,7 @@
             $test_business->addActivity($test_activity);
             //Assert
 
-            $this->assertEquals($test_business->getActivities(), [$test_activity]);
+            $this->assertEquals([$test_activity], $test_business->getActivities());
         }
 
         function testGetActivities()
@@ -609,16 +610,20 @@
             $business_id2 = 21;
             $activity_category_id2 = 22;
             $id2 = 2;
-            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity2 = new Activity($activity_name2, $activity_date2, $activity_location2, $activity_description2, $activity_price2, $activity_quantity2, $business_id2, $activity_category_id2, $id2 = null);
             $test_activity2->save();
 
             //Act
             $test_business->addActivity($test_activity);
             $test_business->addActivity($test_activity2);
+            $result = $test_business->getActivities();
 
             //Assert
-            $this->assertEquals($test_business->getActivities(), [$test_activity, $test_activity2]);
+            $this->assertEquals([$test_activity, $test_activity2], $result);
         }
+
+
+
 
 
 
