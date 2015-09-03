@@ -1,16 +1,78 @@
 <html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <form action="/userhome/{{ user.getId }}" method="post">
-            <input name="_method" type="hidden" value="patch">
-        </form>
-        <div class='form-group'>
-            <input id="user_name" name="user_name" type="text" placeholder="update user info">
-            <button type="submit" class="btn-primary">Update</button>
+<head>
+    <title>Walk-Ins Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href='/'>Activities</a>
+                <a class="navbar-brand" href='/businesses'>Businesses</a>
+                <a class="navbar-brand" href='/userhome'>User Login</a>
+                <a class="navbar-brand" href='/businesshome'>Business Login</a>
+            </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            </div>
         </div>
-        <form action='/delete_user' method='post'>
-            <button type='submit' class = "btn-danger">Delete this User</button>
+    </nav>
+    <div class='container'>
+        <div class='right'>
+        <div id="legend">
+            <legend class="">Your User Information</legend>
+        </div>
+            <ul>
+                <li>{{ user.getUserName }}</li>
+                <li>{{ user.getUserEmail }}</li>
+                <li>{{ user.getUserPhone }}</li>
+            </ul>
+        </div>
+        <div class='left'>
+        <form class="form-horizontal" action='/updateuser/{id}' method='POST'>
+            <input name="_method" type="hidden" value="patch">
+            <fieldset>
+                <div id="legend">
+                    <legend class="">Update Your Profile:</legend>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="user_name">User Name</label>
+                    <div class="controls">
+                        <input type="text" id="user_name" name="user_name" placeholder="" class="input-xlarge">
+                        <p class="help-block">Update your name</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="user_email">E-mail</label>
+                    <div class="controls">
+                        <input type="text" id="user_email" name="user_email" placeholder="" class="input-xlarge">
+                        <p class="help-block">Update your E-mail</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"  for="user_phone">Phone Number</label>
+                    <div class="controls">
+                        <input type="text" id="user_phone" name="user_phone" placeholder="" class="input-xlarge">
+                        <p class="help-block">Update your phone number</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button class="btn btn-success">Update User</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <form action='/userhome/delete' method='post'>
+            <button type='submit' class = "btn btn-danger">Delete this User</button>
+        </div>
+    </div>
     </body>
 </html>

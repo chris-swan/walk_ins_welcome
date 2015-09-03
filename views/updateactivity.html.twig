@@ -24,44 +24,61 @@
             </div>
         </div>
         </nav>
-        <div = class='containter'>
-            <h1>Activities</h1>
-
-            {% if activities is not empty %}
-                <p> Here are the activities to go do: </p>
-                <ul>
-                    {% for activity in activities %}
-                        <li><a href="/activity/{{ activity.getId }}">{{ activity.getActivityName }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>There are no activities today</p>
-            {% endif %}
-
             <h3>Update an Activity</h3>
-                <form action='/updateactivity/{{ activity.getId }}' method='post'>
-                    <input name="_method" type="hidden" value="patch">
-
-                    <label for='activity_name'>activity name</label>
-                    <input id='activity_name' name='activity_name' type='text'>
-                        <br>
-                    <label for='activity_date'>activity date</label>
-                    <input id='activity_date' name='activity_date' type='text'>
-                        <br>
-                    <label for='activity_location'>activity location</label>
-                    <input id='activity_location' name='activity_location' type='text'>
-                        <br>
-                    <label for='activity_description'>activity description</label>
-                    <input id='activity_description' name='activity_description' type='text'>
-                        <br>
-                    <label for='activity_price'>activity price</label>
-                    <input id='activity_price' name='activity_price' type='text'>
-                        <br>
-                    <label for='activity_quantity'>activity location email</label>
-                    <input id='activity_quantity' name='activity_quantity' type='text'>
-                        <br>
-                    <button type='submit'>Add activity</button>
-                </form>
-            </div>
+              <form class="form-horizontal" action='/updateactivity/{{ activity.getId }}' method='POST'>
+                  <fieldset>
+                      <div id="legend">
+                          <legend class="">Add an Activity</legend>
+                      </div>
+                      <div class="control-group">
+                          <label class="control-label"  for="activity_name">Activity Name</label>
+                          <div class="controls">
+                              <input type="text" id="activity_name" name="activity_name" placeholder="" class="input-xlarge">
+                              <p class="help-block">Enter your activities name</p>
+                          </div>
+                      </div>
+                      <div class="control-group">
+                          <label class="control-label"  for="activity_date">Activity Date</label>
+                          <div class="controls">
+                              <input type="text" id="activity_date" name="activity_date" placeholder="" class="input-xlarge">
+                              <p class="help-block">Enter the date of the activity</p>
+                          </div>
+                      </div>
+                      <div class="control-group">
+                          <label class="control-label"  for="activity_location">Activity Location</label>
+                          <div class="controls">
+                              <input type="text" id="activity_location" name="activity_location" placeholder="" class="input-xlarge">
+                              <p class="help-block">Enter the address where the activity will take place</p>
+                          </div>
+                      </div>
+                      <div class="control-group">
+                          <label class="control-label"  for="activity_description">Activity Description</label>
+                          <div class="controls">
+                              <input type="text" id="activity_description" name="activity_description" placeholder="" class="input-xlarge">
+                              <p class="help-block">Enter a description of the activity</p>
+                          </div>
+                      </div>
+                      <div class="control-group">
+                          <label class="control-label"  for="activity_price">Activity Price</label>
+                          <div class="controls">
+                              <input type="text" id="activity_price" name="activity_price" placeholder="" class="input-xlarge">
+                              <p class="help-block">Enter the price of this activity</p>
+                          </div>
+                      </div>
+                      <div class="control-group">
+                          <label class="control-label"  for="activity_quantity">Activity Quantity</label>
+                          <div class="controls">
+                              <input type="text" id="activity_quantity" name="activity_quantity" placeholder="" class="input-xlarge">
+                              <p class="help-block">Enter the number of spots available for this activity</p>
+                          </div>
+                      </div>
+                      <div class="control-group">
+                          <div class="controls">
+                              <button class="btn btn-success">Add Activity</button>
+                          </div>
+                      </div>
+                  </fieldset>
+              </form>
+        </div>
     </body>
 </html>
