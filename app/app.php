@@ -111,10 +111,10 @@
         return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
     });
     //Delete single user
-    $app->delete("/userhome/delete", function($id) use ($app){
+    $app->delete("/userhome/{id}", function($id) use ($app){
         $user = User::find($id);
         $user->delete();
-        return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
+        return $app['twig']->render('index.html.twig', array('activities'=>Activity::getAll()));
     });
 
     //Path to update and activity
