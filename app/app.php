@@ -86,7 +86,18 @@
     });
 
     //path to specific users account info and activity info
-    $app->get("/updateuser/{id}", function() use ($app) {
+    $app->get("/updateuser/{id}", function($id) use ($app) {
+        $user = User::find($id);
+        return $app['twig']->render('updateuser.html.twig', array('user' => $user));
+    });
+
+    //Patch to edit users info
+    $app->patch("/updateuser/{id}", function($id) use ($app) {
+        $user_name = $_POST['user_name'];
+        $user_phone = $_POST['user_phone'];
+        $user_email = $_POST['user_email'];
+        $user = User::find($id);
+        $user->update($username, $user_phone, $user_email);
         return $app['twig']->render('updateuser.html.twig', array('user' => $user));
     });
 
@@ -95,9 +106,15 @@
         $user_name = $_POST['user_name'];
         $user_phone = $_POST['user_phone'];
         $user_email = $_POST['user_email'];
-        $user = new User($user_name, $user_buy_quantity = null, $user_phone, $user_email, $activity_id = null, $id = null);
+        $user = new User($user_name, $user_buy_quantity, $user_phone, $user_email, $activity_id, $id = null);
         $user->save();
         return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
+    });
+    //Delete single user
+    $app->delete("/userhome/{id}", function($id) use ($app){
+        $user = User::find($id);
+        $user->delete();
+        return $app['twig']->render('index.html.twig', array('activities'=>Activity::getAll()));
     });
 
     //Path to update and activity

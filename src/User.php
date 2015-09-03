@@ -83,9 +83,8 @@
         function update()
         {
             $GLOBALS['DB']->exec("UPDATE users SET user_name = '{$this->getUserName()}' WHERE id = {$this->getId()};");
-
         }
-        
+
 //not completely sure that the delete function is working
         function delete()
         {

@@ -1,0 +1,25 @@
+.right {
+    float: right;
+    margin-right: 10%;
+}
+
+.left {
+    float: left;
+    margin-left: 10%;
+}
+
+.navbar-brand {
+    margin: 0 30px 0 0;
+}
+
+label {
+    font-size: 16px;
+}
+
+.help-block {
+    font-size: 12px;
+}
+
+.control-label {
+    margin: -3px 0 -3px 0;
+}

@@ -25,42 +25,77 @@
         </div>
         </nav>
         <div class="container">
-
-            <form action='/businesshome' method='post'>
-                <label for='business_name'>Business name</label>
-                <input id='business_name' name='business_name' type='text'>
-                    <br>
-                <label for='business_phone'>Business Phone</label>
-                <input id='business_phone' name='business_phone' type='text'>
-                    <br>
-                <label for='business_contact'>Business Contact</label>
-                <input id='business_contact' name='business_contact' type='text'>
-                    <br>
-                <label for='business_website'>Business website</label>
-                <input id='business_website' name='business_website' type='text'>
-                    <br>
-                <label for='business_address'>Business address</label>
-                <input id='business_address' name='business_address' type='text'>
-                    <br>
-                <label for='business_contact_email'>business contact email</label>
-                <input id='business_contact_email' name='business_contact_email' type='text'>
-                    <br>
-                <button type='submit'>Add Business</button>
-            </form>
-
-            {% if businesses is not empty %}
+            <div class="left">
+                <form class="form-horizontal" action='/businesshome' method='POST'>
+                    <fieldset>
+                        <div id="legend">
+                            <legend class="">Add Your Business</legend>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="business_name">Business Name</label>
+                            <div class="controls">
+                                <input type="text" id="business_name" name="business_name" placeholder="" class="input-xlarge">
+                                <p class="help-block">Enter the name of your business</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="business_contact_email">E-mail</label>
+                            <div class="controls">
+                                <input type="text" id="business_contact_email" name="business_contact_email" placeholder="" class="input-xlarge">
+                                <p class="help-block">Enter your businesses E-mail</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"  for="business_phone">Business Phone</label>
+                            <div class="controls">
+                                <input type="text" id="business_phone" name="business_phone" placeholder="" class="input-xlarge">
+                                <p class="help-block">Enter your businesses phone number</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"  for="business_contact">Business Contact</label>
+                            <div class="controls">
+                                <input type="text" id="business_contact" name="business_contact" placeholder="" class="input-xlarge">
+                                <p class="help-block">Enter name of person at your business to contact</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"  for="business_website">Business Website</label>
+                            <div class="controls">
+                                <input type="text" id="business_website" name="business_website" placeholder="" class="input-xlarge">
+                                <p class="help-block">Enter your businesses website</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"  for="business_address">Business Name</label>
+                            <div class="controls">
+                                <input type="text" id="business_address" name="business_address" placeholder="" class="input-xlarge">
+                                <p class="help-block">Enter your businesses address</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button class="btn btn-success">Add Business</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="right">
+            <div id="legend">
+                <legend class="">List of Businesses</legend>
+                {% if businesses is not empty %}
                 <p> Here are the businesses offering fun things: </p>
+            </div>
                 <ul>
-                    {% for business in businesses %}
-                        <li><a href="/business/{{ business.getId }}">{{ business.getBusinessName }}</a></li>
-                    {% endfor %}
+                {% for business in businesses %}
+                    <li><a href="/business/{{ business.getId }}">{{ business.getBusinessName }}</a></li>
+                {% endfor %}
                 </ul>
-            {% else %}
-                <p>There are no businesses currently offering today</p>
-            {% endif %}
-
-
-
+                {% else %}
+                    <p>There are no businesses currently offering today</p>
+                {% endif %}
+            </div>
         </div>
     </body>
 </html>

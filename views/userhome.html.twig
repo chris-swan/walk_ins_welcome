@@ -1,55 +1,80 @@
 <html>
-<head>
-    <title>Walk ins Welcome</title>
-</head>
-        <title>user Home</title>
+    <head>
+        <title>Walk-Ins Welcome</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
         <link rel="stylesheet" href="/css/styles.css">
     </head>
     <body>
         <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href='/'>Activities</a>
-                <a class="navbar-brand" href='/businesses'>Businesses</a>
-                <a class="navbar-brand" href='/userhome'>User Login</a>
-                <a class="navbar-brand" href='/businesshome'>Business Login</a>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href='/'>Activities</a>
+                    <a class="navbar-brand" href='/businesses'>Businesses</a>
+                    <a class="navbar-brand" href='/userhome'>User Login</a>
+                    <a class="navbar-brand" href='/businesshome'>Business Login</a>
+                </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                </div>
             </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        </nav>
+        <div class='container'>
+            <div class="left">
+                <form class="form-horizontal" action='/userhome' method='POST'>
+                    <fieldset>
+                        <div id="legend">
+                            <legend class="">Create Your User Profile</legend>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="user_name">User Name</label>
+                            <div class="controls">
+                                <input type="text" id="user_name" name="user_name" placeholder="" class="input-xlarge">
+                                <p class="help-block">Create a Username</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="user_email">E-mail</label>
+                            <div class="controls">
+                                <input type="text" id="user_email" name="user_email" placeholder="" class="input-xlarge">
+                                <p class="help-block">Enter your E-mail</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"  for="user_phone">Phone Number</label>
+                            <div class="controls">
+                                <input type="text" id="user_phone" name="user_phone" placeholder="" class="input-xlarge">
+                                <p class="help-block">Enter your phone number</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button class="btn btn-success">Create User</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="right">
+                <div id="legend">
+                    <legend class="">List of all Users</legend>
+                    {% if users is not empty %}
+                        <p> Here are all the users: </p>
+                </div>
+                <ul>
+                    {% for user in users %}
+                        <li><a href="/updateuser/{{ user.getId }}">{{ user.getUserName }}</a></li>
+                    {% endfor %}
+                </ul>
+                    {% else %}
+                        <p>There are currently no users in the system</p>
+                    {% endif %}
             </div>
         </div>
-        </nav>
-<body>
-    <div class='container'>
-        {% if users is not empty %}
-            <p> Here are the users: </p>
-            <ul>
-                {% for user in users %}
-                    <li><a href="/userhome/{{ user.getId }}">{{ user.getUserName }}</a></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>There are no users in the system</p>
-        {% endif %}
-
-        <form action='/userhome' method='post'>
-            <label for='user_name'>User Name</label>
-            <input id='user_name' name='user_name' type='text'>
-                <br>
-            <label for='user_phone'>User Phone</label>
-            <input id='user_phone' name='user_phone' type='text'>
-                <br>
-            <label for='user_email'>User Email</label>
-            <input id='user_email' name='user_email' type='text'>
-                <br>
-            <button type='submit'>Add user</button>
-        </form>
-    </div>
-</body>
+    </body>
+</html>
