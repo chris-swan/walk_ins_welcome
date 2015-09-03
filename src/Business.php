@@ -103,7 +103,7 @@
 /////  MAY NEED TO CHANGE THE GetBusinessCategoryId and remove from this line:
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO businesses (business_name, business_phone, business_contact, business_website, business_address, business_contact_email) VALUES ('{$this->getBusinessName()}', '{$this->getBusinessPhone()}', '{$this->getBusinessContact()}', '{$this->getBusinessWebsite()}', '{$this->getBusinessAddress()}', '{$this->getBusinessContactEmail()}';");
+            $GLOBALS['DB']->exec("INSERT INTO businesses (business_name, business_phone, business_contact, business_website, business_address, business_contact_email) VALUES ('{$this->getBusinessName()}', '{$this->getBusinessPhone()}', '{$this->getBusinessContact()}', '{$this->getBusinessWebsite()}', '{$this->getBusinessAddress()}', '{$this->getBusinessContactEmail()}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
