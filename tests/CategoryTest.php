@@ -279,9 +279,5 @@
             $this->assertEquals([$test_business, $test_business2], $result);
         }
 
-
-
-
-
     }
 ?>
