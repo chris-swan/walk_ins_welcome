@@ -18,7 +18,6 @@
             $this->business_address = $business_address;
             $this->business_contact_email = $business_contact_email;
             $this->id = $id;
-
         }
 /////////////////////////////////GET/SET NAME/////////////////////////////////
         function getBusinessName()

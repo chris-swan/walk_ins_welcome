@@ -281,6 +281,7 @@
             $this->assertEquals($test_user, $result[0]);
         }
 
+        //This test is supposed to be testing the delete function on the activities_user join table. We're not sure if it's properly doing that. 
         function testDelete()
         {
             $user_name = "Wolf";
@@ -360,7 +361,7 @@
             $this->assertEquals($test_activity, $result[0]);
         }
 
-        function testGetActivity()
+        function testGetActivities()
         {
             $activity_name = "Activity One";
             $activity_date = '2016-01-01';
@@ -402,7 +403,6 @@
 
             $this->assertEquals([$test_activity, $test_activity2], $result);
         }
-
 
     }
 
