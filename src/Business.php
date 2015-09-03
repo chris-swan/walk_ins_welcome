@@ -109,25 +109,25 @@
 
         function updateContact($new_business_contact)
         {
-        $GLOBALS['DB']->exec("UPDATE businesses SET business_contact ='{$new_business_contact}' WHERE id = {$this->getId()}, {$this->getBusinessContact()};");
+        $GLOBALS['DB']->exec("UPDATE businesses SET business_contact ='{$new_business_contact}' WHERE id = {$this->getId()};");
         $this->setBusinessContact($new_business_contact);
         }
 
         function updatePhone($new_business_phone)
         {
-        $GLOBALS['DB']->exec("UPDATE businesses SET business_phone ='{$new_business_phone}' WHERE id = {$this->getId()}, {$this->getBusinessPhone()};");
+        $GLOBALS['DB']->exec("UPDATE businesses SET business_phone ='{$new_business_phone}' WHERE id = {$this->getId()};");
         $this->setBusinessPhone($new_business_phone);
         }
 
         function updateWebsite($new_business_website)
         {
-        $GLOBALS['DB']->exec("UPDATE businesses SET business_website ='{$new_business_website}' WHERE id = {$this->getId()}, {$this->getBusinessWebsite()};");
+        $GLOBALS['DB']->exec("UPDATE businesses SET business_website ='{$new_business_website}' WHERE id = {$this->getId()};");
         $this->setBusinessWebsite($new_business_website);
         }
 
         function updateContactEmail($new_business_contact_email)
         {
-        $GLOBALS['DB']->exec("UPDATE businesses SET business_contact_email ='{$new_business_contact_email}' WHERE id = {$this->getId()}, {$this->getBusinessContactEmail()};");
+        $GLOBALS['DB']->exec("UPDATE businesses SET business_contact_email ='{$new_business_contact_email}' WHERE id = {$this->getId()};");
         $this->setBusinessContactEmail($new_business_contact_email);
         }
 
