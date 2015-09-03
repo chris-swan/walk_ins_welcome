@@ -127,9 +127,8 @@
                 $business_website = $business['business_website'];
                 $business_address = $business['business_address'];
                 $business_contact_email = $business['business_contact_email'];
-                $business_category_id = $business['business_category_id'];
                 $id = $business['id'];
-                $new_business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+                $new_business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id);
                 array_push($businesses_array, $new_business);
             }
             return $businesses_array;

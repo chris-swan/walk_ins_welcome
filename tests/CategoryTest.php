@@ -269,8 +269,7 @@
 
             $new_category->addBusiness($test_business);
             $new_category->addBusiness($test_business2);
-            var_dump($new_category);
-
+    
             $result = $new_category->getBusinesses();
 
             $this->assertEquals([$test_business, $test_business2], $result);
