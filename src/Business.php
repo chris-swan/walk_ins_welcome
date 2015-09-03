@@ -104,6 +104,7 @@
         {
             $GLOBALS['DB']->exec("INSERT INTO businesses (business_name, business_phone, business_contact, business_website, business_address, business_contact_email) VALUES ('{$this->getBusinessName()}', '{$this->getBusinessPhone()}', '{$this->getBusinessContact()}', '{$this->getBusinessWebsite()}', '{$this->getBusinessAddress()}', '{$this->getBusinessContactEmail()}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
+            //  var_dump($this->getBusinessContactEmail());
         }
 
         function updateContact($new_business_contact)
