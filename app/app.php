@@ -38,9 +38,9 @@
     });
 
     //path to businesshome for biz operations, updates and viewing
-    $app->get("/businesshome/{id}", function($id) use ($app) {
+    $app->get("/updatebusiness/{id}", function($id) use ($app) {
         $business = Business::find($id);
-        return $app['twig']->render('businesshome.html.twig', array('business' => $business, 'businesses' => Business::getAll, 'all_activities' =>Activity::getAll()));
+        return $app['twig']->render('updatebusiness.html.twig', array('business' => $business, 'businesses' => Business::getAll, 'all_activities' =>Activity::getAll()));
     });
 
     //specific business viewing page to be viewed by the user.
@@ -68,8 +68,27 @@
         return $app['twig']->render('businesshome.html.twig', array('businesses' => Business::getAll()));
     });
 
+    $app->patch("/business/{id}", function($id) use ($app) {
+        $business_name = $_POST['business_name'];
+        $business_phone = $_POST['business_phone'];
+        $business_contact = $_POST['business_contact'];
+        $business_website = $_POST['business_website'];
+        $business_address = $_POST['business_address'];
+        $business_contact_email = $_POST['business_contact_email'];
+        $business = Business::find($id);
+        $business->updateContact($business_contact);
+        $business->save();
+        return $app['twig']->render('updatebusiness.html.twig', array('business' => $business));
+    });
+
+    //Delete a single business:
+    $app->delete("/business/{id}", function($id) use ($app){
+        $business = Business::find($id);
+        $business->delete();
+        return $app['twig']->render('businesshome.html.twig', array('businesses' => Business::getAll()));
+    });
+
     //specific business viewing page to be viewed by the user.
-    //(NEED TO FINALIZE ARRAY!!!)
     $app->get("/business/{id}", function($id) use ($app) {
         $business = Business::find($id);
         return $app['twig']->render('business.html.twig', array('business' => $business, 'all_activities' => Activity::getAll()));
@@ -106,20 +125,17 @@
         $user_name = $_POST['user_name'];
         $user_phone = $_POST['user_phone'];
         $user_email = $_POST['user_email'];
-        $user_buy_quantity = $_POST['user_buy_quantity'];
-        $activity_id = $_POST['activity_id'];
-        $user = new User($user_name, $user_buy_quantity = 1, $user_phone, $user_email, $activity_id = 1, $id = null);
+        $user = new User($user_name, $user_phone, $user_email, $id = null);
         $user->save();
         return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
     });
+
     //Delete single user
-    $app->delete("/userhome", function($id) use ($app){
+    $app->delete("/userhome/{id}", function($id) use ($app){
         $user = User::find($id);
         $user->delete();
         return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
     });
-
-
 
     //Path to update and activity
     $app->get("/updateactivity/{id}", function() use ($app) {

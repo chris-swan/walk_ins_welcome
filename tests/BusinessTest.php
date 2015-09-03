@@ -26,9 +26,9 @@
            Activity::deleteAll();
 
        }
-//////////////////////////////////////TESTS///////////////////////////////////
+////////////////////////////////////TESTS///////////////////////////////////
 
-/////////////////////////////////// GET SET BUSINESS NAME ////////////////////
+///////////////////////////////// GET SET BUSINESS NAME ////////////////////
         function testGetBusinessName()
         {
             //Arrange
@@ -298,9 +298,11 @@
 
             //Act
             $test_business->save();
+            // var_dump($test_business);
 
             //Assert
             $result = Business::getAll();
+            // var_dump($result);
             $this->assertEquals($test_business, $result[0]);
         }
 ////////////////////////// TEST GET ALL ///////////////////////////////////////
