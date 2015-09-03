@@ -25,17 +25,76 @@
         </div>
         </nav>
         <div class='container'>
-            <h1>{{ business.getBusinessName }}</h1>
-            <h2>Business Information</h2>
-            <ul>
-                <li>{{ business.getBusinessPhone }}</li>
-                <li>{{ business.getBusinessContact }}</li>
-                <li>{{ business.getBusinessWebsite }}</li>
-                <li>{{ business.getBusinessAddress }}</li>
-                <li>{{ business.getBusinessContactEmail }}</li>
-            </ul>
-
-            <button type='submit'>RSVP</button>
+            <div class="container">
+                <div class="left">
+                    <form class="form-horizontal" action='/businesshome' method='POST'>
+                        <input name="_method" type="hidden" value="patch">
+                        <fieldset>
+                            <div id="legend">
+                                <legend class="">Update Your Business information</legend>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="business_name">Business Name</label>
+                                <div class="controls">
+                                    <input type="text" id="business_name" name="business_name" placeholder="" class="input-xlarge">
+                                    <p class="help-block">Enter the name of your business</p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="business_contact_email">E-mail</label>
+                                <div class="controls">
+                                    <input type="text" id="business_contact_email" name="business_contact_email" placeholder="" class="input-xlarge">
+                                    <p class="help-block">Enter your businesses E-mail</p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"  for="business_phone">Business Phone</label>
+                                <div class="controls">
+                                    <input type="text" id="business_phone" name="business_phone" placeholder="" class="input-xlarge">
+                                    <p class="help-block">Enter your businesses phone number</p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"  for="business_contact">Business Contact</label>
+                                <div class="controls">
+                                    <input type="text" id="business_contact" name="business_contact" placeholder="" class="input-xlarge">
+                                    <p class="help-block">Enter name of person at your business to contact</p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"  for="business_website">Business Website</label>
+                                <div class="controls">
+                                    <input type="text" id="business_website" name="business_website" placeholder="" class="input-xlarge">
+                                    <p class="help-block">Enter your businesses website</p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label"  for="business_address">Business Name</label>
+                                <div class="controls">
+                                    <input type="text" id="business_address" name="business_address" placeholder="" class="input-xlarge">
+                                    <p class="help-block">Enter your businesses address</p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button class="btn btn-success">Update Business</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="right">
+                    <div id="legend">
+                        <legend class="">{{ business.getBusinessName }}</legend>
+                    </div>
+                    <ul>
+                        <li>Phone: {{ business.getBusinessPhone }}</li>
+                        <li>Contact: {{ business.getBusinessContact }}</li>
+                        <li>Website: {{ business.getBusinessWebsite }}</li>
+                        <li>Address: {{ business.getBusinessAddress }}</li>
+                        <li>Email: {{ business.getBusinessContactEmail }}</li>
+                    </ul>
+            </div>
         </div>
     </body>
 </html>
