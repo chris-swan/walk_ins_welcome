@@ -475,6 +475,31 @@
             $this->assertEquals([$test_business], $test_activity->getBusinesses());
         }
 
+        function testQuantityRemaining()
+        {
+          //Arrange
+          $activity_name = "Activity One";
+          $activity_date = '2016-01-01';
+          $activity_location = "Location";
+          $activity_description = "Description of Activity One";
+          $activity_price = "Price of Activity One";
+          $activity_quantity = 10;
+          $business_id = 11;
+          $activity_category_id = 12;
+          $id = 1;
+          $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+          $test_activity->save();
+
+          $user_purchase = 3;
+
+          //Act
+          $result = $test_activity->quantityRemaining($user_purchase);
+          var_dump($result);
+
+          //Assert
+          $this->assertEquals(7, $result);
+        }
+
 
     }
 
