@@ -76,7 +76,7 @@
 
         function save()
         {
-            $user_name = $GLOBALS['DB']->exec("INSERT INTO users (user_name, user_phone, user_email) VALUES ('{$this->getUserName()}', '{$this->getUserPhone()}', '{$this->getUserEmail()}');");
+            $user_name = $GLOBALS['DB']->exec("INSERT INTO users (user_name, user_phone, user_email) VALUES ('{$this->getUserName()}', '{$this->getUserPhone()}', '{$this->getUserEmail()}';");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
