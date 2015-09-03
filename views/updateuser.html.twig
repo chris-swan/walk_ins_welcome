@@ -70,8 +70,10 @@
                 </div>
             </fieldset>
         </form>
-        <form action='/userhome' method='post'>
+        <form action='/userhome/{{ user.getId }}' method='post'>
+            <input name="_method" type="hidden" value="delete">
             <button type='submit' class = "btn btn-danger">Delete this User</button>
+        </form>
         </div>
     </div>
     </body>
