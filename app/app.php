@@ -38,7 +38,7 @@
     });
 
     //path to businesshome for biz operations, updates and viewing
-    $app->get("/businesshome/{id}", function($id) use ($app) {
+    $app->get("/upadatebusiness/{id}", function($id) use ($app) {
         $business = Business::find($id);
         return $app['twig']->render('businesshome.html.twig', array('business' => $business, 'businesses' => Business::getAll, 'all_activities' =>Activity::getAll()));
     });
@@ -67,9 +67,14 @@
         $business->save();
         return $app['twig']->render('businesshome.html.twig', array('businesses' => Business::getAll()));
     });
+    //Delete a single business:
+    $app->delete("/business/{id}", function($id) use ($app){
+        $business = Business::find($id);
+        $user->delete();
+        return $app['twig']->render('businesshome.html.twig', array('businesses' => Business::getAll()));
+    });
 
     //specific business viewing page to be viewed by the user.
-    //(NEED TO FINALIZE ARRAY!!!)
     $app->get("/business/{id}", function($id) use ($app) {
         $business = Business::find($id);
         return $app['twig']->render('business.html.twig', array('business' => $business, 'all_activities' => Activity::getAll()));
@@ -118,7 +123,6 @@
         $user->delete();
         return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
     });
-
 
 
     //Path to update and activity
