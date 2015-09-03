@@ -227,9 +227,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fakeemail.com";
-            $business_category_id= 14;
             $id= 1;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id);
             $test_business->save();
 
             $category_name = "music";
@@ -250,9 +249,8 @@
             $business_website = "walkins.com";
             $business_address ="123 fake st";
             $business_contact_email = "me@fakeemail.com";
-            $business_category_id= 14;
             $id= 1;
-            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $id);
             $test_business->save();
 
             $business_name2="Smoke Signals";
@@ -261,9 +259,8 @@
             $business_website2 = "Signal.com";
             $business_address2 ="123 getreal st";
             $business_contact_email2 = "me@realemail.com";
-            $business_category_id2= 2;
-            $id2= 2;
-            $test_business2 = new Business($business_name2, $business_phone2, $business_contact2, $business_website2, $business_address2, $business_contact_email2, $business_category_id2, $id2);
+            $id2 = 2;
+            $test_business2 = new Business($business_name2, $business_phone2, $business_contact2, $business_website2, $business_address2, $business_contact_email2, $id2);
             $test_business2->save();
 
             $category_name = "music";
