@@ -3,19 +3,19 @@
     class User {
 
         private $user_name;
-        private $user_buy_quantity;
+        // private $user_buy_quantity;
         private $user_phone;
         private $user_email;
-        private $activity_id;
+        // private $activity_id;
         private $id;
 
-        function __construct($user_name, $user_buy_quantity, $user_phone, $user_email, $activity_id, $id = null)
+        function __construct($user_name, $user_phone, $user_email, $id = null)
         {
             $this->user_name = $user_name;
-            $this->user_buy_quantity = $user_buy_quantity;
+            // $this->user_buy_quantity = $user_buy_quantity;
             $this->user_phone = $user_phone;
             $this->user_email = $user_email;
-            $this->activity_id = $activity_id;
+            // $this->activity_id = $activity_id;
             $this->id = $id;
         }
 
@@ -29,15 +29,15 @@
             return $this->user_name;
         }
 
-        function setBuyQuantity($new_user_buy_quantity)
-        {
-            $this->user_buy_quantity = (int)$new_user_buy_quantity;
-        }
-
-        function getBuyQuantity()
-        {
-            return $this->user_buy_quantity;
-        }
+        // function setBuyQuantity($new_user_buy_quantity)
+        // {
+        //     $this->user_buy_quantity = (int)$new_user_buy_quantity;
+        // }
+        //
+        // function getBuyQuantity()
+        // {
+        //     return $this->user_buy_quantity;
+        // }
 
         function setUserPhone($new_user_phone)
         {
@@ -59,15 +59,15 @@
             return $this->user_email;
         }
 
-        function setActivityId($new_activity_id)
-        {
-            $this->activity_id = (string)$new_activity_id;
-        }
-
-        function getActivityId()
-        {
-            return $this->activity_id;
-        }
+        // function setActivityId($new_activity_id)
+        // {
+        //     $this->activity_id = (string)$new_activity_id;
+        // }
+        //
+        // function getActivityId()
+        // {
+        //     return $this->activity_id;
+        // }
 
         function getId()
         {
@@ -76,7 +76,7 @@
 
         function save()
         {
-            $user_name = $GLOBALS['DB']->exec("INSERT INTO users (user_name, user_buy_quantity, user_phone, user_email, activity_id) VALUES ('{$this->getUserName()}', {$this->getBuyQuantity()}, '{$this->getUserPhone()}', '{$this->getUserEmail()}', {$this->getActivityId()});");
+            $user_name = $GLOBALS['DB']->exec("INSERT INTO users (user_name, user_phone, user_email) VALUES ('{$this->getUserName()}', '{$this->getUserPhone()}', '{$this->getUserEmail()}';");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -104,12 +104,12 @@
             foreach ($returned_users as $user)
             {
                 $user_name = $user['user_name'];
-                $user_buy_quantity = $user['user_buy_quantity'];
+                // $user_buy_quantity = $user['user_buy_quantity'];
                 $user_phone = $user['user_phone'];
                 $user_email = $user['user_email'];
-                $activity_id = $user['activity_id'];
+                // $activity_id = $user['activity_id'];
                 $id = $user['id'];
-                $new_user = new User ($user_name, $user_buy_quantity, $user_phone, $user_email, $activity_id, $id);
+                $new_user = new User ($user_name, $user_phone, $user_email, $id);
                 array_push($users, $new_user);
             }
             return $users;
@@ -155,6 +155,8 @@
             }
             return $activities_array;
         }
+
+
 
     }
 
