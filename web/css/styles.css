@@ -8,6 +8,14 @@
     margin-left: 10%;
 }
 
+.navbar{
+    background-image: url(https://www.neonandmore.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/-/1-10-28-286-3213/Walk-Ins-Welcome-Neon-Sign-Custom-Neon-Signs-32-13.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 280px;
+}
+
 .navbar-brand {
     margin: 0 30px 0 0;
 }

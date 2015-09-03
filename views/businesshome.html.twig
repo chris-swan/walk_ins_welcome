@@ -95,6 +95,9 @@
                 {% else %}
                     <p>There are no businesses currently offering today</p>
                 {% endif %}
+                <form action='/delete_businesses' method='post'>
+                   <button type='submit' class="btn btn-danger">Delete All Businesses</button>
+               </form> 
             </div>
         </div>
     </body>
