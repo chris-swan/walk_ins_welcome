@@ -148,6 +148,11 @@
 
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM businesses WHERE id = {$this->getID()};");
+        }
+
         static function getAll()
         {
             $returned_businesses = $GLOBALS['DB']->query("SELECT * FROM businesses;");
