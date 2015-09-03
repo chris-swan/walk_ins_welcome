@@ -157,8 +157,6 @@
             return $activities_array;
         }
 
-
-
     }
 
  ?>
