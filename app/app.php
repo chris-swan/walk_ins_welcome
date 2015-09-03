@@ -106,16 +106,20 @@
         $user_name = $_POST['user_name'];
         $user_phone = $_POST['user_phone'];
         $user_email = $_POST['user_email'];
-        $user = new User($user_name, $user_buy_quantity, $user_phone, $user_email, $activity_id, $id = null);
+        $user_buy_quantity = $_POST['user_buy_quantity'];
+        $activity_id = $_POST['activity_id'];
+        $user = new User($user_name, $user_buy_quantity = 1, $user_phone, $user_email, $activity_id = 1, $id = null);
         $user->save();
         return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
     });
     //Delete single user
-    $app->delete("/userhome/{id}", function($id) use ($app){
+    $app->delete("/userhome", function($id) use ($app){
         $user = User::find($id);
         $user->delete();
-        return $app['twig']->render('index.html.twig', array('activities'=>Activity::getAll()));
+        return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
     });
+
+
 
     //Path to update and activity
     $app->get("/updateactivity/{id}", function() use ($app) {
