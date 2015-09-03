@@ -1,8 +1,36 @@
 <html>
     <head>
-        <title></title>
+        <title>Walk ins Welcome</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <link rel="stylesheet" href="/css/styles.css">
     </head>
     <body>
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href='/'>Activities</a>
+                <a class="navbar-brand" href='/businesses'>Businesses</a>
+                <a class="navbar-brand" href='/userhome'>User Login</a>
+                <a class="navbar-brand" href='/businesshome'>Business Login</a>
+            </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            </div>
+        </div>
+        </nav>
+    <body>
+        <h3>Add an Activity</h3>
+            <form action='/activities' method='post'>
+                <label for='activity_name'>activity name</label>
+                <input id='activity_name' name='activity_name' type='text'>
+            </form>
+
         <h1>update <em>{{ business.getBusinessName }}</em></h1>
 
         <form action="/businesshome/{{ business.getId }}" method="post">
@@ -15,6 +43,5 @@
         <form action='/delete_business' method='post'>
             <button type='submit' class = "btn-danger">Delete this business</button>
         </form>
-
     </body>
 </html>

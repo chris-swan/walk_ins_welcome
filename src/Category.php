@@ -37,10 +37,12 @@
             $GLOBALS['DB']->exec("UPDATE categories SET category_name = '{$this->getCategoryName()}' WHERE id = {$this->getId()};");
         }
 
+        //Unsure if delete function is written correctly.
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM categories WHERE id = {$this->getId()};");
             $GLOBALS['DB']->exec("DELETE FROM activities_categories WHERE category_id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM businesses_categories WHERE category_id = {$this->getId()};");
         }
 
         static function deleteAll()
@@ -76,6 +78,13 @@
             $GLOBALS['DB']->exec("INSERT INTO activities_categories (activity_id, category_id) VALUES ({$activity->getId()}, {$this->getId()});");
         }
 
+        function addBusiness($business)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO businesses_categories (business_id, category_id) VALUES ({$business->getId()}, {$this->getId()});");
+        }
+
+
+//This join statement joins activities and categories on the activities_categories join table.
         function getActivities()
         {
             $query = $GLOBALS['DB']->query("SELECT activities.* FROM categories
@@ -101,6 +110,30 @@
             return $activities_array;
         }
 
+        //This join statement joins businesses and categories on the businesses_categories join table.
+        function getBusinesses()
+        {
+            $query = $GLOBALS['DB']->query("SELECT businesses.* FROM categories
+                            JOIN businesses_categories ON (categories.id = businesses_categories.category_id)
+                            JOIN businesses ON (businesses_categories.business_id = businesses.id)
+                            WHERE categories.id = {$this->getId()};");
+
+            $businesses_array = array();
+            foreach($query as $business)
+            {
+                $business_name = $business['business_name'];
+                $business_phone = $business['business_phone'];
+                $business_contact = $business['business_contact'];
+                $business_website = $business['business_website'];
+                $business_address = $business['business_address'];
+                $business_contact_email = $business['business_contact_email'];
+                $business_category_id = $business['business_category_id'];
+                $id = $business['id'];
+                $new_business = new Business($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+                array_push($businesses_array, $new_business);
+            }
+            return $businesses_array;
+        }
     }
 
 ?>

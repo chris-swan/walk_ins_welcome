@@ -95,6 +95,14 @@
             $this->assertEquals([], $result);
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM categories WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM activities_categories WHERE category_id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM businesses_categories WHERE category_id = {$this->getId()};");
+        }
+
+//This test is supposed to be testing the delete function on the activities_categories join table. We're not sure if it's properly doing that. It's not testing the delete function on the businesses_categories join table.
         function testDelete()
         {
             $category_name = "music";
@@ -113,7 +121,7 @@
             $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
             $test_activity->save();
 
-            $new_category->addActivity($new_category);
+            $new_category->addActivity($test_activity);
             $new_category->delete();
 
             $this->assertEquals([], $new_category->getActivities());
@@ -173,7 +181,7 @@
             $this->assertEquals($test_activity, $result[0]);
         }
 
-        function testGetActivity()
+        function testGetActivities()
         {
             $activity_name = "Activity One";
             $activity_date = '2016-01-01';
@@ -209,6 +217,66 @@
             $result = $new_category->getActivities();
 
             $this->assertEquals([$test_activity, $test_activity2], $result);
+        }
+
+        function testAddBusiness()
+        {
+            $business_name="IBM";
+            $business_phone= "5033133131";
+            $business_contact = "john";
+            $business_website = "walkins.com";
+            $business_address ="123 fake st";
+            $business_contact_email = "me@fakeemail.com";
+            $business_category_id= 14;
+            $id= 1;
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+            $test_business->save();
+
+            $category_name = "music";
+            $new_category = new Category($category_name);
+            $new_category->save();
+
+            $new_category->addBusiness($test_business);
+            $result = $new_category->getBusinesses();
+
+            $this->assertEquals($test_business, $result[0]);
+        }
+
+        function testGetBusinesses()
+        {
+            $business_name="IBM";
+            $business_phone= "5033133131";
+            $business_contact = "john";
+            $business_website = "walkins.com";
+            $business_address ="123 fake st";
+            $business_contact_email = "me@fakeemail.com";
+            $business_category_id= 14;
+            $id= 1;
+            $test_business = new Business ($business_name, $business_phone, $business_contact, $business_website, $business_address, $business_contact_email, $business_category_id, $id);
+            $test_business->save();
+
+            $business_name2="Smoke Signals";
+            $business_phone2= "5033139999";
+            $business_contact2 = "Theo";
+            $business_website2 = "Signal.com";
+            $business_address2 ="123 getreal st";
+            $business_contact_email2 = "me@realemail.com";
+            $business_category_id2= 2;
+            $id2= 2;
+            $test_business2 = new Business($business_name2, $business_phone2, $business_contact2, $business_website2, $business_address2, $business_contact_email2, $business_category_id2, $id2);
+            $test_business2->save();
+
+            $category_name = "music";
+            $new_category = new Category($category_name);
+            $new_category->save();
+
+            $new_category->addBusiness($test_business);
+            $new_category->addBusiness($test_business2);
+            var_dump($new_category);
+
+            $result = $new_category->getBusinesses();
+
+            $this->assertEquals([$test_business, $test_business2], $result);
         }
 
     }
