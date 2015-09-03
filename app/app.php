@@ -69,7 +69,6 @@
     });
 
     $app->patch("/business/{id}", function($id) use ($app) {
-        $business_name = $_POST['business_name'];
         $business_phone = $_POST['business_phone'];
         $business_contact = $_POST['business_contact'];
         $business_website = $_POST['business_website'];
@@ -77,8 +76,10 @@
         $business_contact_email = $_POST['business_contact_email'];
         $business = Business::find($id);
         $business->updateContact($business_contact);
-        $business->save();
-        return $app['twig']->render('updatebusiness.html.twig', array('business' => $business));
+        $business->updatePhone($business_phone);
+        $business->updateWebsite($business_website);
+        $business->updateContactEmail($business_contact_email);
+        return $app['twig']->render('business.html.twig', array('business' => $business));
     });
 
     //Delete a single business:
