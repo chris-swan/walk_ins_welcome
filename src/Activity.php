@@ -12,7 +12,7 @@ Class Activity
         private $activity_category_id;
         private $id;
 
-        function __construct($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null)
+        function __construct($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null)
         {
             $this->activity_name = $activity_name;
             $this->activity_date = $activity_date;
@@ -21,7 +21,6 @@ Class Activity
             $this->activity_price = $activity_price;
             $this->activity_quantity = $activity_quantity;
             $this->business_id = $business_id;
-            $this->activity_category_id = $activity_category_id;
             $this->id = $id;
         }
 
@@ -120,7 +119,7 @@ Class Activity
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO activities (activity_name, activity_date, activity_location, activity_description, activity_price, activity_quantity, business_id, activity_category_id) VALUES ('{$this->getActivityName()}', '{$this->getActivityDate()}', '{$this->getActivityLocation()}', '{$this->getActivityDescription()}', '{$this->getActivityPrice()}', {$this->getActivityQuantity()}, {$this->getBusinessId()}, {$this->getActivityCategoryId()});");
+            $GLOBALS['DB']->exec("INSERT INTO activities (activity_name, activity_date, activity_location, activity_description, activity_price, activity_quantity, business_id) VALUES ('{$this->getActivityName()}', '{$this->getActivityDate()}', '{$this->getActivityLocation()}', '{$this->getActivityDescription()}', '{$this->getActivityPrice()}', {$this->getActivityQuantity()}, {$this->getBusinessId()});");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -156,9 +155,8 @@ Class Activity
                 $activity_price = $activity['activity_price'];
                 $activity_quantity = $activity['activity_quantity'];
                 $business_id = $activity['business_id'];
-                $activity_category_id = $activity['activity_category_id'];
                 $id = $activity['id'];
-                $new_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+                $new_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id);
             array_push($activities, $new_activity);
             }
             return $activities;

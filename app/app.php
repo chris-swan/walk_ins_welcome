@@ -89,6 +89,11 @@
         return $app['twig']->render('businesshome.html.twig', array('businesses' => Business::getAll()));
     });
 
+    $app->post("/delete_businesses", function() use ($app) {
+        Business::deleteAll();
+        return $app['twig']->render('businesshome.html.twig', array('businesses' => Business::getAll()));
+    });
+
     //specific business viewing page to be viewed by the user.
     $app->get("/business/{id}", function($id) use ($app) {
         $business = Business::find($id);
@@ -138,23 +143,35 @@
         return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
     });
 
+    //Delete all users
+    $app->post("/delete_users", function() use ($app) {
+        User::deleteAll();
+        return $app['twig']->render('userhome.html.twig', array('users' => User::getAll()));
+    });
+
     //Path to update and activity
     $app->get("/updateactivity/{id}", function() use ($app) {
         return $app['twig']->render('updateactivity.html.twig', array ('activity'=> $activity));
     });
 
     //Update activity info
-    $app->post("/updateactivity/{id}", function() use($app) {
+    $app->post("/activity", function() use ($app) {
         $activity_name = $_POST['activity_name'];
         $activity_date = $_POST['activity_date'];
         $activity_location = $_POST['activity_location'];
         $activity_description = $_POST['activity_description'];
         $activity_price = $_POST['activity_price'];
         $activity_quantity = $_POST['activity_quantity'];
-        $activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id = null, $activity_category_id = null, $id = null);
+        $activity_business_id = $_POST['business_id'];
+        $activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $activity_business_id, $id = null);
         $activity->save();
-        return $app['twig']->render('updateactivity.html.twig', array('activities' => Activity::getAll()));
+        return $app['twig']->render('index.html.twig', array('activities'=>Activity::getAll()));
     });
 
-    return $app
+    $app->get("/activity/{id}", function($id) use ($app) {
+        $activity = Activity::find($id);
+        return $app['twig']->render('activity.html.twig', array('activity' => $activity));
+    });
+
+        return $app
 ?>

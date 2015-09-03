@@ -74,6 +74,9 @@
                     {% else %}
                         <p>There are currently no users in the system</p>
                     {% endif %}
+                <form action='/delete_users' method='post'>
+                   <button type='submit' class="btn btn-danger">Delete All Users</button>
+                </form>
             </div>
         </div>
     </body>
