@@ -148,9 +148,8 @@
                 $activity_price = $activity['activity_price'];
                 $activity_quantity = $activity['activity_quantity'];
                 $business_id = $activity['business_id'];
-                $activity_category_id = $activity['activity_category_id'];
                 $id = $activity['id'];
-                $new_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+                $new_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id);
                 array_push($activities_array, $new_activity);
             }
             return $activities_array;
