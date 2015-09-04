@@ -25,12 +25,7 @@
         return $app['twig']->render('index.html.twig', array('activities'=>Activity::getAll()));
     });
 
-    //Path to view activity(and allow for user to purchase/get activity)
-    $app->get("/activity/{id}", function($id) use ($app) {
-        $activity = Activity::find($id);
-        $activity_id = $activity->getId();
-        return $app['twig']->render('activity.html.twig');
-    });
+
 
     //List of all businesses offering activities
     $app->get("/businesses", function() use ($app) {
@@ -154,7 +149,7 @@
         return $app['twig']->render('updateactivity.html.twig', array ('activity'=> $activity));
     });
 
-    //Update activity info
+    //Post activity info
     $app->post("/activity", function() use ($app) {
         $activity_name = $_POST['activity_name'];
         $activity_date = $_POST['activity_date'];
@@ -168,10 +163,12 @@
         return $app['twig']->render('index.html.twig', array('activities'=>Activity::getAll()));
     });
 
+    //Path to specific activity page:
     $app->get("/activity/{id}", function($id) use ($app) {
         $activity = Activity::find($id);
         return $app['twig']->render('activity.html.twig', array('activity' => $activity));
     });
+
 
         return $app
 ?>
