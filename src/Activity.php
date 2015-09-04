@@ -129,6 +129,19 @@ Class Activity
             $this->setActivityName($new_activity_name);
         }
 
+        function quantityRemaining($user_purchase)
+        {
+          $query=$GLOBALS['DB']->query("SELECT activity_quantity FROM activities WHERE id = {$this->getId()}");
+          $returned_quantity=$query->fetchAll(PDO::FETCH_ASSOC);
+          $open_tickets = $returned_quantity[0]['activity_quantity'];
+          if ($open_tickets >= $user_purchase) {
+            $new_amount = ($open_tickets - $user_purchase);
+            var_dump($new_amount);
+            $GLOBALS['DB']->exec("UPDATE activities SET activity_quantity = {$new_amount} WHERE id = {$this->getId()};");
+            return $new_amount;
+          }
+        }
+
         static function getAll()
         {
             $returned_activities = $GLOBALS['DB']->query("SELECT * FROM activities;");
