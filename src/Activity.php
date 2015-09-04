@@ -9,7 +9,6 @@ Class Activity
         private $activity_price;
         private $activity_quantity;
         private $business_id;
-        private $activity_category_id;
         private $id;
 
         function __construct($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null)
@@ -60,10 +59,6 @@ Class Activity
             $this->business_id = $new_business_id;
         }
 
-        function setActivityCategoryId($new_activity_category_id)
-        {
-            $this->activity_category_id = $new_activity_category_id;
-        }
 
         //Get Methods
 
@@ -102,10 +97,7 @@ Class Activity
             return $this->business_id;
         }
 
-        function getActivityCategoryId()
-        {
-            return $this->activity_category_id;
-        }
+
 
         function getId()
         {

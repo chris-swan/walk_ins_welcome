@@ -31,9 +31,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 1;
-            $activity_category_id = 2;
             $id = 3;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
 
             //Act
             $result = $test_activity->getActivityName();
@@ -52,9 +51,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 1;
-            $activity_category_id = 2;
             $id = 3;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
 
             //Act
             $result = $test_activity->getActivityDate();
@@ -73,9 +71,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 1;
-            $activity_category_id = 2;
             $id = 3;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
 
             //Act
             $result = $test_activity->getActivityLocation();
@@ -94,9 +91,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 1;
-            $activity_category_id = 2;
             $id = 3;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
 
             //Act
             $result = $test_activity->getActivityDescription();
@@ -115,9 +111,8 @@
             $activity_price = "$15.95";
             $activity_quantity = 10;
             $business_id = 1;
-            $activity_category_id = 2;
             $id = 3;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
 
             //Act
             $result = $test_activity->getActivityPrice();
@@ -136,9 +131,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 1;
-            $activity_category_id = 2;
             $id = 3;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
 
             //Act
             $result = $test_activity->getActivityQuantity();
@@ -157,9 +151,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 1;
-            $activity_category_id = 2;
             $id = 3;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
 
             //Act
             $result = $test_activity->getBusinessId();
@@ -168,26 +161,6 @@
             $this->assertEquals($business_id, $result);
         }
 
-        function testGetActivityCategoryId()
-        {
-            //Arrange
-            $activity_name = "Activity One";
-            $activity_date = 2016-01-01;
-            $activity_location = "Location";
-            $activity_description = "Description of Activity One";
-            $activity_price = "Price of Activity One";
-            $activity_quantity = 10;
-            $business_id = 1;
-            $activity_category_id = 2;
-            $id = 3;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
-
-            //Act
-            $result = $test_activity->getActivityCategoryId();
-
-            //Assert
-            $this->assertEquals($activity_category_id, $result);
-        }
 
         function testGetId()
         {
@@ -199,9 +172,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 1;
-            $activity_category_id = 2;
             $id = 3;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
 
             //Act
             $result = $test_activity->getId();
@@ -220,16 +192,17 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 1;
-            $activity_category_id = 2;
             $id = 1;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
 
             //Act
             $test_activity->save();
 
+
             //Assert
             $result = Activity::getAll();
             $this->assertEquals($test_activity, $result[0]);
+            var_dump($result);
         }
 
         function testGetAll()
@@ -242,9 +215,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 11;
-            $activity_category_id = 12;
             $id = 1;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
             $test_activity->save();
 
             $activity_name2 = "Activity Two";
@@ -254,9 +226,8 @@
             $activity_price2 = "Price of Activity Two";
             $activity_quantity2 = 20;
             $business_id2 = 21;
-            $activity_category_id2 = 22;
             $id2 = 2;
-            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
             $test_activity2->save();
 
             //Act
@@ -276,9 +247,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 11;
-            $activity_category_id = 12;
             $id = 1;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
             $test_activity->save();
 
             $activity_name2 = "Activity Two";
@@ -288,9 +258,8 @@
             $activity_price2 = "Price of Activity Two";
             $activity_quantity2 = 20;
             $business_id2 = 21;
-            $activity_category_id2 = 22;
             $id2 = 2;
-            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
             $test_activity2->save();
 
             //Act
@@ -311,9 +280,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 11;
-            $activity_category_id = 12;
             $id = 1;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
             $test_activity->save();
 
             $activity_name2 = "Activity Two";
@@ -323,9 +291,8 @@
             $activity_price2 = "Price of Activity Two";
             $activity_quantity2 = 20;
             $business_id2 = 21;
-            $activity_category_id2 = 22;
             $id2 = 2;
-            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
             $test_activity2->save();
 
             //Act
@@ -346,9 +313,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 1;
-            $activity_category_id = 2;
             $id = 1;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id);
             $test_activity->save();
 
             $new_activity_name = "Activity Two";
@@ -370,9 +336,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 1;
-            $activity_category_id = 2;
             $id = 1;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id);
             $test_activity->save();
 
             $activity_name2 = "Activity Two";
@@ -382,9 +347,8 @@
             $activity_price2 = "Price of Activity Two";
             $activity_quantity2 = 20;
             $business_id2 = 21;
-            $activity_category_id2 = 22;
             $id2 = 2;
-            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity2 = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
             $test_activity2->save();
 
             //Act
@@ -404,9 +368,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 1;
-            $activity_category_id = 2;
             $id = 1;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id);
             $test_activity->save();
 
             $business_name="IBM";
@@ -452,9 +415,8 @@
             $activity_price = "Price of Activity One";
             $activity_quantity = 10;
             $business_id = 11;
-            $activity_category_id = 12;
             $id = 1;
-            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+            $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
             $test_activity->save();
 
             $business_name="IBM";
@@ -485,9 +447,8 @@
           $activity_price = "Price of Activity One";
           $activity_quantity = 10;
           $business_id = 11;
-          $activity_category_id = 12;
           $id = 1;
-          $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $activity_category_id, $id = null);
+          $test_activity = new Activity($activity_name, $activity_date, $activity_location, $activity_description, $activity_price, $activity_quantity, $business_id, $id = null);
           $test_activity->save();
 
           $user_purchase = 3;
