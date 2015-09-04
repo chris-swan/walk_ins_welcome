@@ -10,18 +10,28 @@
 
 .navbar{
     background-image: url(https://www.neonandmore.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/-/1-10-28-286-3213/Walk-Ins-Welcome-Neon-Sign-Custom-Neon-Signs-32-13.jpg);
+    background-size: 18%;
+    background-repeat: no-repeat;
+    background-position: right;
+    margin-right: 6px;
+    height: 100px;
+    background-color: black;
+}
+
+body {
+    background-image: url(http://www.jonathanphotos.com/Pictures/North%20America%20web/Oregon/Portland/Oregon%20Sunset%20from%20the%20Portland%20City%20Grill%20web%201000%20n%2072.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
-    height: 280px;
 }
 
 .navbar-brand {
-    margin: 0 30px 0 0;
+    margin: 20px 40px 0 0 ;
+    font-size: 25px
 }
 
 label {
     font-size: 16px;
+    color: #ffffff;
 }
 
 .help-block {
@@ -30,4 +40,42 @@ label {
 
 .control-label {
     margin: -3px 0 -3px 0;
+}
+
+legend {
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.container-fluid {
+    margin-left: 10px;
+}
+
+a {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+a.hover {
+    color: blue;
+}
+
+.index {
+    margin-bottom: 20px;
+}
+h4 {
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+h3 {
+    color: #ffffff;
+}
+
+.help-block {
+    color: #ffffff;
+}
+
+p {
+  color: #ffffff;
 }

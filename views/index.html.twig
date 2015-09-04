@@ -25,16 +25,16 @@
         </div>
         </nav>
         <div class='container'>
-            <h1>Go do something awesome!</h1>
-            <h2>Activities</h2>
+
+
+            <legend class="activity">Here are the available activities Go do something awesome!</legend>
 
             {% if activities is not empty %}
-                <p> Here are the activities to go do: </p>
-                <ul>
+
                     {% for activity in activities %}
-                        <li><a href="/activity/{{ activity.getId }}">{{ activity.getActivityName }}</a></li>
+                        <h4 class='index'><a href="/activity/{{ activity.getId }}">{{ activity.getActivityName }} - {{ activity.getActivityDescription }}</h4></li>
                     {% endfor %}
-                </ul>
+
             {% else %}
                 <p>There are no activities today</p>
             {% endif %}

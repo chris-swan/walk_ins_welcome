@@ -29,11 +29,9 @@
         <div id="legend">
             <legend class="">Your User Information</legend>
         </div>
-            <ul>
-                <li>{{ user.getUserName }}</li>
-                <li>{{ user.getUserEmail }}</li>
-                <li>{{ user.getUserPhone }}</li>
-            </ul>
+            <h4>{{ user.getUserName }}</h4>
+            <h4>{{ user.getUserEmail }}</h4>
+            <h4>{{ user.getUserPhone }}</h4>
         </div>
         <div class='left'>
         <form class="form-horizontal" action='/updateuser/{id}' method='POST'>
@@ -65,7 +63,7 @@
                 </div>
                 <div class="control-group">
                     <div class="controls">
-                        <button class="btn btn-success">Update User</button>
+                        <button class="btn btn-primary">Update User</button>
                     </div>
                 </div>
             </fieldset>

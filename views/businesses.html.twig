@@ -27,12 +27,16 @@
 <body>
     <div class="container">
     {% if businesses is not empty %}
-        <p> Here are the businesses offering fun things: </p>
-        <ul>
+        <h3> Here are the businesses offering fun things: </h3>
             {% for business in businesses %}
-                <li><a href="/business/{{ business.getId }}">{{ business.getbusinessName }}</a></li>
+                <legend class="">{{ business.getBusinessName }}</legend>
+                <h4>Phone: {{ business.getBusinessPhone }}</h4>
+                <h4>Contact: {{ business.getBusinessContact }}</h4>
+                <h4>Website: {{ business.getBusinessWebsite }}</h4>
+                <h4>Address: {{ business.getBusinessAddress }}</h4>
+                <h4>Email: {{ business.getBusinessContactEmail }}</h4>
+                    <br>
             {% endfor %}
-        </ul>
     {% else %}
         <p>There are no businesses currently offering today</p>
     {% endif %}

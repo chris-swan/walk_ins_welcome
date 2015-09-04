@@ -70,7 +70,7 @@
                             </div>
                             <div class="control-group">
                                 <div class="controls">
-                                    <button class="btn btn-success">Update Business</button>
+                                    <button class="btn btn-primary">Update Business</button>
                                 </div>
                             </div>
                         </fieldset>
@@ -109,13 +109,6 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label class="control-label"  for="activity_description">Activity Description</label>
-                                <div class="controls">
-                                    <input type="text" id="activity_description" name="activity_description" placeholder="" class="input-xlarge">
-                                    <p class="help-block">Enter a description of the activity</p>
-                                </div>
-                            </div>
-                            <div class="control-group">
                                 <label class="control-label"  for="activity_price">Activity Price</label>
                                 <div class="controls">
                                     <input type="text" id="activity_price" name="activity_price" placeholder="" class="input-xlarge">
@@ -129,10 +122,17 @@
                                     <p class="help-block">Enter the number of spots available for this activity</p>
                                 </div>
                             </div>
+                            <div class="control-group">
+                                <label class="control-label"  for="activity_description">Activity Description</label>
+                                <div class="controls">
+                                    <textarea type="text" id="activity_description" name="activity_description" placeholder=""></textarea>
+                                    <p class="help-block">Enter a description of the activity and the start time</p>
+                                </div>
+                            </div>
                             <input type="hidden" name="business_id" value="{{ business.getId }}">
                             <div class="control-group">
                                 <div class="controls">
-                                    <button class="btn btn-success">Add Activity</button>
+                                    <button class="btn btn-primary">Add Activity</button>
                                 </div>
                             </div>
                         </fieldset>

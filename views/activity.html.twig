@@ -25,17 +25,15 @@
         </div>
         </nav>
         <div class='container'>
-            <h1>{{ activity.getActivityName }}</h1>
-            
-            <ul>
-                <li>{{ activity.getActivityDate }}</li>
-                <li>{{ activity.getActivityLocation }}</li>
-                <li>{{ activity.getActivityDescription }}</li>
-                <li>{{ activity.getActivityPrice }}</li>
-                <li>{{ activity.getActivityQuantity }}</li>
-            </ul>
+            <legend class="activity">{{ activity.getActivityName }}</legend>
+                <h4>Event Date: {{ activity.getActivityDate }}</h4>
+                <h4>Address: {{ activity.getActivityLocation }}</h4>
+                <h4>Description: {{ activity.getActivityDescription }}</h4>
+                <h4>Price: {{ activity.getActivityPrice }}</h4>
+                <h4>Availability: {{ activity.getActivityQuantity }}</h4>
 
-            <button type='submit'>RSVP</button>
+
+            <button type='submit' class="btn btn-primary">RSVP</button>
         </div>
     </body>
 </html>

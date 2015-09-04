@@ -24,74 +24,17 @@
             </div>
         </div>
         </nav>
-    <body>
-        <h3>Add an Activity</h3>
-        <form class="form-horizontal" action='/activity' method='POST'>
-            <fieldset>
-                <div id="legend">
-                    <legend class="">Add an Activity</legend>
-                </div>
-                <div class="control-group">
-                    <label class="control-label"  for="activity_name">Activity Name</label>
-                    <div class="controls">
-                        <input type="text" id="activity_name" name="activity_name" placeholder="" class="input-xlarge">
-                        <p class="help-block">Enter your activities name</p>
+                    <div id="legend">
+                        <legend class="">{{ business.getBusinessName }}</legend>
                     </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label"  for="activity_date">Activity Date</label>
-                    <div class="controls">
-                        <input type="text" id="activity_date" name="activity_date" placeholder="" class="input-xlarge">
-                        <p class="help-block">Enter the date of the activity</p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label"  for="activity_location">Activity Location</label>
-                    <div class="controls">
-                        <input type="text" id="activity_location" name="activity_location" placeholder="" class="input-xlarge">
-                        <p class="help-block">Enter the address where the activity will take place</p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label"  for="activity_description">Activity Description</label>
-                    <div class="controls">
-                        <input type="text" id="activity_description" name="activity_description" placeholder="" class="input-xlarge">
-                        <p class="help-block">Enter a description of the activity</p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label"  for="activity_price">Activity Price</label>
-                    <div class="controls">
-                        <input type="text" id="activity_price" name="activity_price" placeholder="" class="input-xlarge">
-                        <p class="help-block">Enter the price of this activity</p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label"  for="activity_quantity">Activity Quantity</label>
-                    <div class="controls">
-                        <input type="text" id="activity_quantity" name="activity_quantity" placeholder="" class="input-xlarge">
-                        <p class="help-block">Enter the number of spots available for this activity</p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="controls">
-                        <button class="btn btn-success">Add Activity</button>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
-
-        <h1>update <em>{{ business.getBusinessName }}</em></h1>
-
-        <form action="/businesshome/{{ business.getId }}" method="post">
-            <input name="_method" type="hidden" value="patch">
-        </form>
-        <div class='form-group'>
-            <input id="name" name="name" type="text" placeholder="rename business">
-            <button type="submit" class="btn-primary">Update</button>
+                    <ul>
+                        <li>Phone: {{ business.getBusinessPhone }}</li>
+                        <li>Contact: {{ business.getBusinessContact }}</li>
+                        <li>Website: {{ business.getBusinessWebsite }}</li>
+                        <li>Address: {{ business.getBusinessAddress }}</li>
+                        <li>Email: {{ business.getBusinessContactEmail }}</li>
+                    </ul>
+            </div>
         </div>
-        <form action='/delete_business' method='post'>
-            <button type='submit' class = "btn-danger">Delete this business</button>  
-        </form>
     </body>
 </html>
